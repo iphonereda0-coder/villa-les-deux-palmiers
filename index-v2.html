@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#04201c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Villa des Deux Palmiers</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.58.0/dist/umd/supabase.min.js"></script>
+<style>
+:root{--bg:#04201c;--c:#0a2e29;--b:#14463f;--t:#f2e6cf;--m:#8fb0a8;--a:#e2a73b;--p:#19d3c5;--ko:#ff5a4d;--ok:#5ee08a}
+*{box-sizing:border-box;margin:0;padding:0}[hidden]{display:none!important}
+body{font:15px/1.45 "Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--t);padding-bottom:92px}
+header{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top)) 16px 12px;background:linear-gradient(180deg,#0a3a33,var(--bg));border-bottom:3px solid var(--a)}
+h1{font:900 1.3rem/1 "Arial Black",Impact,sans-serif;letter-spacing:-.02em}
+h2{font:900 1.3rem/1.1 "Arial Black",Impact,sans-serif;letter-spacing:-.02em;margin-bottom:14px}
+h2::after{content:"";display:block;width:34px;height:3px;background:var(--a);margin-top:8px}
+.chip{display:inline-block;margin-top:6px;padding:3px 10px;border-radius:99px;background:var(--b);font-size:.75rem;color:var(--t)}
+.chip.occ{background:var(--ko);color:#2b0805;font-weight:700}.chip.lib{background:var(--ok);color:#06240f;font-weight:700}
+main{max-width:980px;margin:auto;padding:14px}
+.card{background:var(--c);border:1px solid var(--b);border-radius:8px;padding:16px;margin-bottom:14px}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.k{background:var(--bg);border:1px solid var(--b);border-left:5px solid var(--a);border-radius:4px;padding:12px}
+.k small{color:var(--m);font-size:.78rem}.k b{display:block;font:900 1.45rem/1.1 "Arial Black",Impact,sans-serif;margin-top:6px}
+.k.p{border-left-color:var(--p)}
+label{display:block;font-size:.8rem;color:var(--m)}
+input,select{width:100%;margin-top:4px;padding:12px;background:var(--bg);border:1px solid var(--b);border-radius:4px;color:var(--t);font:inherit}
+input:focus,select:focus,button:focus-visible{outline:3px solid var(--p);outline-offset:1px}
+button{cursor:pointer;border:0;border-radius:4px;padding:12px 16px;font:900 .9rem "Arial Black",Impact,sans-serif;background:var(--a);color:#1a1200}
+button:active{transform:translateY(1px)}button:disabled{opacity:.5}
+button.s{background:var(--b);color:var(--t);padding:7px 11px;font-size:.78rem}
+button.d{background:#4a1612;color:#ffb4ab;padding:7px 11px;font-size:.78rem}
+button.v{background:var(--ok);color:#06240f;padding:7px 11px;font-size:.78rem}
+form{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;align-items:end}
+.w{overflow-x:auto;margin-top:12px}table{width:100%;border-collapse:collapse;font-size:.88rem}
+th,td{padding:10px 8px;text-align:left;border-bottom:1px solid var(--b);white-space:nowrap}th{color:var(--m);font-weight:600;font-size:.78rem}
+.bad{color:var(--ko);font-weight:900}.good{color:var(--ok);font-weight:900}.mu{color:var(--m)}
+.td{padding:10px 0;border-bottom:1px solid var(--b)}.td:last-child{border:0}
+.seg{display:flex;gap:6px;margin-bottom:14px;overflow-x:auto}.seg button{flex:0 0 auto;background:var(--c);color:var(--m);border:1px solid var(--b);font:700 .85rem Arial,sans-serif}.seg .on{background:var(--a);color:#1a1200;border-color:var(--a)}
+nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:var(--bg);border-top:3px solid var(--a);padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+nav button{background:none;color:var(--m);flex:1;font:700 .66rem Arial,sans-serif;padding:6px 2px}
+nav button.on{color:var(--a)}nav span{display:block;font-size:1.35rem}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;font-size:.8rem}
+.cal div,.cal i{padding:9px 0;border-radius:3px;background:var(--bg);font-style:normal}.cal .o{background:var(--ko);color:#2b0805;font-weight:900}.cal .t{outline:2px solid var(--p)}
+.tank{height:150px;border:3px solid var(--p);border-radius:6px;position:relative;overflow:hidden;background:var(--bg)}
+.tank i{position:absolute;left:0;right:0;bottom:0;background:var(--p);transition:height .6s}
+.tank b{position:absolute;inset:0;display:grid;place-items:center;font:900 2rem "Arial Black",Impact,sans-serif;color:var(--t);mix-blend-mode:difference}
+#toast{position:fixed;left:16px;right:16px;bottom:100px;z-index:9;padding:13px 16px;border-radius:6px;background:var(--ok);color:#06240f;font-weight:700;opacity:0;transform:translateY(12px);pointer-events:none;transition:.25s}
+#toast.on{opacity:1;transform:none}#toast.bad{background:var(--ko);color:#2b0805}
+#login{max-width:360px;margin:10vh auto;padding:16px}
+#print{display:none}
+@media print{body>*:not(#print){display:none!important}#print{display:block;background:#fff;padding:24px;font-family:Arial,sans-serif}#print *{color:#000!important}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<div id="login" hidden><div class="card"><h1>🌴 Villa des Deux Palmiers</h1><p class="mu" style="margin-top:6px">Gestion de la villa</p>
+<form onsubmit="return login(event)" style="grid-template-columns:1fr;margin-top:16px">
+<label>E-mail<input name="email" type="email" autocapitalize="off" autocorrect="off" required></label>
+<label>Mot de passe<input name="pw" type="password" required></label>
+<button>Se connecter</button></form></div></div>
+<div id="app" hidden><header><div><h1>🌴 Deux Palmiers</h1><span id="st" class="chip"></span></div>
+<button class="s" onclick="if(confirm('Se déconnecter ?'))sb.auth.signOut().then(()=>location.reload())">Quitter</button></header><main></main><nav></nav></div>
+<div id="toast"></div><div id="print"></div>
+<script>
+const SB_URL='https://aetgcmbgkkzcdyutkssr.supabase.co',SB_KEY='sb_publishable_mZNG7tlN7WgFapgNrlBRbw_FS0-aXUr',TEL_URGENCE='';
+const sb=supabase.createClient(SB_URL,SB_KEY);
+let R=[],role='',grp='home',S={},cal=new Date(),M='';
+const $=s=>document.querySelector(s),K=k=>R.filter(r=>r.kind===k),
+esc=s=>String(s??'').replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';'),
+DA=n=>Math.round(+n||0).toLocaleString('fr-FR')+' DA',L=n=>Math.round(+n||0).toLocaleString('fr-FR')+' L',
+plus=n=>{const d=new Date();d.setDate(d.getDate()+n);return new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10)},td=()=>plus(0),
+ds=(y,m,d)=>`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`,
+nights=r=>Math.max(1,Math.round((new Date(r.depart)-new Date(r.arrivee))/864e5)),
+tot=r=>nights(r)*(+r.prix||0),sum=(a,f)=>a.reduce((s,x)=>s+(+f(x)||0),0),
+own=()=>role==='proprio',inM=(d,m)=>!m||String(d).startsWith(m),
+busy=r=>K('resa').some(x=>r>=x.arrivee&&r<x.depart);
+function toast(m,bad){const t=$('#toast');t.textContent=m;t.className='on'+(bad?' bad':'');clearTimeout(toast.t);toast.t=setTimeout(()=>t.className='',3200)}
+
+async function boot(){
+ const{data:{session}}=await sb.auth.getSession();
+ if(!session){$('#login').hidden=false;return}
+ $('#login').hidden=true;$('#app').hidden=false;
+ const{data:p}=await sb.from('profiles').select('role').eq('id',session.user.id).single();
+ role=p?.role||'employe';
+ await load();
+ sb.channel('r').on('postgres_changes',{event:'*',schema:'public',table:'records'},load).subscribe();
+ sb.auth.onAuthStateChange(e=>{if(e==='SIGNED_OUT')location.reload()});
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)load()});
+ addEventListener('offline',()=>toast('Pas de connexion internet',1));addEventListener('online',()=>{toast('Connexion rétablie');load()});
+}
+async function login(e){e.preventDefault();const b=e.target.querySelector('button');b.disabled=true;
+ const{error}=await sb.auth.signInWithPassword({email:e.target.email.value.trim().toLowerCase(),password:e.target.pw.value});
+ b.disabled=false;if(error)toast(/Invalid login/i.test(error.message)?'E-mail ou mot de passe incorrect':error.message,1);else boot();return false}
+async function load(){try{
+ const{data,error}=await sb.from('records').select('*').order('created_at',{ascending:false});if(error)throw error;
+ R=data.map(x=>({...x.data,id:x.id,kind:x.kind,at:x.created_at}));
+ if(!document.activeElement?.closest('main form'))draw()}catch(e){toast('Chargement impossible : '+(e.message||'réseau'),1)}}
+async function add(kind,data){document.activeElement?.blur();const{error}=await sb.from('records').insert({kind,data});
+ if(error){toast(error.message,1);return false}toast('Enregistré ✓');await load();return true}
+async function upd(id,patch){const{id:_i,kind,at,...d}=R.find(x=>x.id===id);
+ const{error}=await sb.from('records').update({data:{...d,...patch}}).eq('id',id);
+ if(error)toast(error.message,1);else{toast('Mis à jour ✓');load()}}
+async function del(id){if(!confirm('Supprimer cette ligne ?'))return;const{error}=await sb.from('records').delete().eq('id',id);
+ error?toast(error.message,1):toast('Supprimé');load()}
+const qty=(id,d)=>upd(id,{qte:Math.max(0,(+R.find(x=>x.id===id).qte||0)+d)});
+
+async function sub(e,kind){e.preventDefault();const f=e.target,b=f.querySelector('button'),o={};
+ for(const el of f.elements)if(el.name)o[el.name]=el.type==='number'?+el.value:el.value.trim();
+ if(kind==='resa'){
+  if(o.depart<=o.arrivee)return toast('Le départ doit être après l’arrivée',1),false;
+  if(!(o.nb>=1&&o.prix>0))return toast('Indique le nombre de personnes et le prix par nuit',1),false;
+  if(o.acompte>tot(o))return toast('L’acompte dépasse le total',1),false;
+  const nm=K('noir').find(n=>n.nom.toLowerCase()===o.client.toLowerCase()||(o.tel&&n.tel===o.tel));
+  if(nm&&!confirm('⛔ Client sur liste noire ('+nm.raison+'). Enregistrer quand même ?'))return false;
+  if(K('resa').some(r=>o.arrivee<r.depart&&o.depart>r.arrivee)&&!confirm('Ces dates chevauchent une réservation. Enregistrer quand même ?'))return false}
+ for(const k in o)if(typeof o[k]==='number'&&(isNaN(o[k])||o[k]<0))return toast('Un nombre est invalide',1),false;
+ b.disabled=true;const ok=await add(kind,o);b.disabled=false;if(ok)f.reset();return false}
+const F=(kind,fs,btn='Ajouter')=>`<form onsubmit="return sub(event,'${kind}')">${fs.map(([n,l,t,v,o])=>`<label>${l}${Array.isArray(t)?`<select name="${n}">${t.map(x=>`<option>${x}</option>`).join('')}</select>`:`<input name="${n}" type="${t||'text'}" ${t==='number'?'step="any" min="0" inputmode="decimal"':''} value="${esc(v)}" ${o?'':'required'}>`}</label>`).join('')}<button>${btn}</button></form>`;
+const T=(rows,cols,extra=()=>'',nd)=>rows.length?`<div class="w"><table><tr>${cols.map(c=>`<th>${c[0]}</th>`).join('')}<th></th></tr>${rows.map(r=>`<tr>${cols.map(c=>`<td>${c[1](r)}</td>`).join('')}<td>${extra(r)}${nd?'':`<button class="d" onclick="del('${r.id}')">Suppr.</button>`}</td></tr>`).join('')}</table></div>`:'<p class="mu" style="margin-top:12px">Rien pour le moment. Ajoute une première ligne ci-dessus.</p>';
+
+function water(){const ref=K('eau_ref')[0];if(!ref)return null;
+ const used=sum(K('pompe').filter(p=>p.at>ref.at),p=>p.min)*ref.debit,max=16*ref.lm;
+ return{left:Math.max(0,ref.niv*ref.lm-used),max,used,ref}}
+function fin(m=''){
+ const rs=K('resa').filter(r=>inM(r.arrivee,m)),f=k=>K(k).filter(x=>inM(x.date,m)),
+ rev=sum(rs,tot),enc=sum(rs,r=>r.acompte),dep=sum(f('depense'),x=>x.montant),cit=sum(f('citerne'),x=>x.prix),
+ sal=sum(f('heures'),x=>x.montant),mn=sum(f('menage'),x=>x.montant),tv=sum(f('travaux'),x=>x.montant),
+ ger=rev/3,mai=rev-ger,ch=dep+cit+sal+mn+tv;return{rev,enc,ger,mai,dep,cit,sal,mn,tv,ch,net:mai-ch}}
+function occ(y,mo){const n=new Date(y,mo+1,0).getDate();let c=0;for(let d=1;d<=n;d++)if(busy(ds(y,mo,d)))c++;return Math.round(c/n*100)}
+function bon(id){const r=R.find(x=>x.id===id);
+ $('#print').innerHTML=`<h1>🌴 Villa des Deux Palmiers</h1><h2 style="margin-top:8px">Bon de réservation</h2>
+ <p>Client : <b>${esc(r.client)}</b> — Tél : ${esc(r.tel)}</p><p>Nombre de personnes : <b>${esc(r.nb)}</b></p>
+ <p>Arrivée : <b>${esc(r.arrivee)}</b> à ${esc(r.h_in)}</p><p>Départ : <b>${esc(r.depart)}</b> à ${esc(r.h_out)}</p>
+ <p>${nights(r)} nuit(s) × ${DA(r.prix)}</p><h2 style="margin-top:12px">Total : ${DA(tot(r))}</h2>
+ <p>Acompte versé : ${DA(r.acompte)}</p><h2>Reste à payer : ${DA(tot(r)-r.acompte)}</h2>
+ <p style="margin-top:12px">Urgence : ${esc(TEL_URGENCE)}</p><p style="margin-top:50px">Signature client : ________________ &nbsp; Signature gérant : ________________</p>`;
+ window.print()}
+function mv(d){cal.setMonth(cal.getMonth()+d);draw()}
+
+const V={
+home(){const w=water(),low=K('stock').filter(s=>s.qte<=s.seuil),t=td(),mm=t.slice(0,7),
+ cur=K('resa').find(r=>r.arrivee<=t&&t<r.depart),nx=K('resa').filter(r=>r.arrivee>=t).sort((a,b)=>a.arrivee<b.arrivee?-1:1),
+ dep=K('resa').filter(r=>r.depart>=t&&r.depart<=plus(1)),
+ todo=[...dep.map(r=>`🧹 Ménage après le départ de <b>${esc(r.client)}</b> (${esc(r.depart)})`),
+ ...nx.filter(r=>r.arrivee<=plus(3)&&tot(r)>r.acompte).map(r=>`💰 <b>${esc(r.client)}</b> arrive le ${esc(r.arrivee)} : reste ${DA(tot(r)-r.acompte)}`),
+ ...low.map(s=>`📦 Racheter : <b>${esc(s.article)}</b> (il en reste ${esc(s.qte)})`),
+ ...(w&&w.left/w.max<.2?['🚰 Niveau d’eau bas : prévois une citerne']:[])],now=new Date();
+ return`<div class="g">${own()?`<div class="k"><small>Maintenant</small><b>${cur?esc(cur.client):'Libre'}</b></div>
+ <div class="k"><small>Occupation du mois</small><b>${occ(now.getFullYear(),now.getMonth())} %</b></div>
+ <div class="k"><small>Recettes du mois</small><b>${DA(fin(mm).rev)}</b></div><div class="k p"><small>Net maison du mois</small><b>${DA(fin(mm).net)}</b></div>`:''}
+ <div class="k p"><small>Eau restante</small><b>${w?L(w.left):'—'}</b></div></div>
+ <div class="card" style="margin-top:14px"><h2>À faire</h2>${todo.map(x=>`<div class="td">${x}</div>`).join('')||'<p class="good">Rien d’urgent. Tout est en ordre.</p>'}</div>
+ ${own()?`<div class="card"><h2>Prochaines arrivées</h2>${nx.slice(0,4).map(r=>`<div class="td"><b>${esc(r.client)}</b> : ${esc(r.arrivee)} → ${esc(r.depart)}, ${esc(r.nb)} pers.</div>`).join('')||'<p class="mu">Aucune arrivée prévue.</p>'}</div>`:''}
+ <div class="card"><h2>Puits</h2><div class="tank"><i style="height:${w?Math.min(100,w.left/w.max*100):0}%"></i><b>${w?L(w.left):'—'}</b></div>${w?'':'<p class="mu" style="margin-top:8px">Fais une première mesure dans Eau &amp; piscine.</p>'}</div>`},
+
+resa(){const y=cal.getFullYear(),mo=cal.getMonth(),n=new Date(y,mo+1,0).getDate(),off=(new Date(y,mo,1).getDay()+6)%7,rs=K('resa'),t=td();
+ let c=['L','M','M','J','V','S','D'].map(d=>`<i style="background:none;color:var(--m)">${d}</i>`).join('');for(let i=0;i<off;i++)c+='<i></i>';
+ for(let d=1;d<=n;d++){const s=ds(y,mo,d);c+=`<div class="${busy(s)?'o':''} ${s===t?'t':''}">${d}</div>`}
+ const st=r=>r.depart<=t?'<span class="mu">Terminé</span>':r.arrivee<=t?'<span class="good">En séjour</span>':'<span style="color:var(--a)">À venir</span>';
+ return`<div class="card"><h2>Nouvelle réservation</h2>${F('resa',[['client','Nom du client'],['tel','Téléphone','tel','',1],['nb','Nombre de personnes','number',2],['arrivee','Arrivée','date',td()],['h_in','Heure d’entrée','time','14:00'],['depart','Départ','date',plus(1)],['h_out','Heure de sortie','time','12:00'],['prix','Prix par nuit (DA)','number'],['acompte','Acompte payé (DA)','number',0]],'Enregistrer')}</div>
+ <div class="card"><h2><span onclick="mv(-1)" style="cursor:pointer">◀</span> ${cal.toLocaleDateString('fr-FR',{month:'long',year:'numeric'})} <span onclick="mv(1)" style="cursor:pointer">▶</span></h2><div class="cal">${c}</div><p class="mu" style="margin-top:8px;font-size:.8rem">Rouge : nuit occupée. Le jour de départ reste libre.</p></div>
+ <div class="card"><h2>Réservations</h2>${T(rs,[['Client',r=>`<b>${esc(r.client)}</b><br>${esc(r.tel)}`],['Statut',st],['Pers.',r=>esc(r.nb)],['Séjour',r=>`${esc(r.arrivee)} → ${esc(r.depart)}<br>${nights(r)} nuit(s)`],['Total',r=>DA(tot(r))],['Reste',r=>tot(r)-r.acompte>0?`<span class="bad">${DA(tot(r)-r.acompte)}</span>`:'<span class="good">Payé</span>']],r=>`${tot(r)-r.acompte>0?`<button class="v" onclick="upd('${r.id}',{acompte:${tot(r)}})">Solde payé</button> `:''}<button class="s" onclick="bon('${r.id}')">Bon</button> `)}</div>`},
+
+clients(){const m={};K('resa').forEach(r=>{const k=r.client.toLowerCase(),c=m[k]=m[k]||{nom:r.client,tel:r.tel,n:0,t:0};c.n++;c.t+=tot(r)});
+ return`<div class="card"><h2>Mes clients</h2>${T(Object.values(m).sort((a,b)=>b.t-a.t),[['Nom',c=>`<b>${esc(c.nom)}</b>`],['Téléphone',c=>esc(c.tel)],['Séjours',c=>c.n],['Total dépensé',c=>DA(c.t)]],()=>'',1)}</div>
+ <div class="card"><h2>Liste noire</h2>${F('noir',[['nom','Nom'],['tel','Téléphone','tel','',1],['raison','Raison']],'Ajouter')}${T(K('noir'),[['Nom',x=>`<b>${esc(x.nom)}</b>`],['Téléphone',x=>esc(x.tel)],['Raison',x=>esc(x.raison)]])}</div>`},
+
+stock(){const st=K('stock');return`<div class="card"><h2>Ajouter un article</h2>${F('stock',[['article','Article (draps, assiettes…)'],['cat','Catégorie',['Literie','Vaisselle','Cuisine','Piscine','Entretien','Divers']],['qte','Quantité','number',1],['seuil','Alerte quand il en reste','number',2]])}</div>
+ <div class="card"><h2>Inventaire</h2>${T(st,[['Article',s=>`<b>${esc(s.article)}</b>`],['Catégorie',s=>esc(s.cat)],['Quantité',s=>`<span class="${s.qte<=s.seuil?'bad':'good'}">${esc(s.qte)}</span>`]],s=>`<button class="s" onclick="qty('${s.id}',-1)">−1</button> <button class="s" onclick="qty('${s.id}',1)">+1</button> `)}</div>`},
+
+menage(){return`<div class="card"><h2>Ménage effectué</h2>${F('menage',[['date','Date','date',td()],['montant','Montant payé (DA)','number'],['note','Note','text','Ménage fin de séjour',1]])}
+ <div class="k" style="margin-top:12px"><small>Total ménage</small><b>${DA(sum(K('menage'),x=>x.montant))}</b></div>${T(K('menage'),[['Date',x=>esc(x.date)],['Montant',x=>DA(x.montant)],['Note',x=>esc(x.note)]])}</div>`},
+
+travaux(){return`<div class="card"><h2>Travaux et réparations</h2>${F('travaux',[['date','Date','date',td()],['desc','Description'],['montant','Montant (DA)','number']])}
+ <div class="k" style="margin-top:12px"><small>Total travaux</small><b>${DA(sum(K('travaux'),x=>x.montant))}</b></div>${T(K('travaux'),[['Date',x=>esc(x.date)],['Description',x=>`<b>${esc(x.desc)}</b>`],['Montant',x=>DA(x.montant)]])}</div>`},
+
+eau(){const w=water(),ref=w?.ref;
+ return`<div class="card"><h2>Puits de 16 mètres</h2>${w?`<div class="tank"><i style="height:${Math.min(100,w.left/w.max*100)}%"></i><b>${L(w.left)}</b></div><p class="mu" style="margin-top:8px">Pompé depuis la dernière mesure : ${L(w.used)}</p>`:'<p>Enregistre une première mesure ci-dessous.</p>'}</div>
+ <div class="card"><h2>Mesure du puits</h2>${F('eau_ref',[['niv','Hauteur d’eau mesurée (m)','number'],['lm','Litres par mètre de hauteur','number',ref?.lm],['debit','Débit de la pompe (L/min)','number',ref?.debit]],'Enregistrer la mesure')}<p class="mu" style="margin-top:8px;font-size:.8rem">Refais une mesure de temps en temps : l’estimation ne voit pas l’eau qui remonte toute seule.</p></div>
+ <div class="card"><h2>Pompe immergée</h2>${F('pompe',[['date','Date','date',td()],['min','Durée (minutes)','number'],['note','Note','text','',1]])}${T(K('pompe'),[['Date',x=>esc(x.date)],['Durée',x=>esc(x.min)+' min'],['Litres',x=>L(x.min*(ref?.debit||0))],['Note',x=>esc(x.note)]])}</div>`},
+
+citerne(){return`<div class="card"><h2>Citernes achetées</h2>${F('citerne',[['date','Date','date',td()],['vol','Volume (L)','number'],['prix','Prix (DA)','number']])}
+ <div class="k" style="margin-top:12px"><small>Total dépensé</small><b>${DA(sum(K('citerne'),x=>x.prix))}</b></div>${T(K('citerne'),[['Date',x=>esc(x.date)],['Volume',x=>L(x.vol)],['Prix',x=>DA(x.prix)]])}</div>`},
+
+piscine(){const low=K('stock').filter(s=>s.cat==='Piscine'&&s.qte<=s.seuil);
+ return`<div class="card"><h2>Traitement de la piscine</h2>${low.length?`<p class="bad" style="margin-bottom:10px">À racheter : ${low.map(s=>esc(s.article)).join(', ')}</p>`:''}${F('piscine',[['date','Date','date',td()],['produit','Produit',['Galets de chlore','Chlore choc','pH moins','pH plus','Anti-algues','Floculant']],['dose','Quantité utilisée'],['note','Note','text','',1]])}</div>
+ <div class="card"><h2>Historique</h2>${T(K('piscine'),[['Date',x=>esc(x.date)],['Produit',x=>`<b>${esc(x.produit)}</b>`],['Quantité',x=>esc(x.dose)],['Note',x=>esc(x.note)]])}</div>`},
+
+heures(){const h=K('heures');
+ return`<div class="card"><h2>Heures de travail</h2>${F('heures',[['date','Date','date',td()],['nom','Employé'],['h','Heures travaillées','number'],['montant','Prise du jour (DA)','number']])}
+ <div class="g" style="margin-top:12px"><div class="k"><small>Total des heures</small><b>${sum(h,x=>x.h)} h</b></div><div class="k"><small>Total à payer</small><b>${DA(sum(h,x=>x.montant))}</b></div></div>
+ ${T(h,[['Date',x=>esc(x.date)],['Employé',x=>`<b>${esc(x.nom)}</b>`],['Heures',x=>esc(x.h)],['Prise du jour',x=>DA(x.montant)]])}</div>`},
+
+finance(){const f=fin(M);
+ return`<div class="card"><h2>Comptabilité</h2><label>Mois (vide = tout)<input type="month" value="${esc(M)}" onchange="M=this.value;draw()"></label>
+ <div class="g" style="margin-top:12px"><div class="k"><small>Recettes</small><b>${DA(f.rev)}</b></div><div class="k"><small>Déjà encaissé</small><b>${DA(f.enc)}</b></div><div class="k"><small>Reste à encaisser</small><b>${DA(f.rev-f.enc)}</b></div></div>
+ <div class="g" style="margin-top:10px"><div class="k p"><small>Ta part (1/3)</small><b>${DA(f.ger)}</b></div><div class="k p"><small>Part maison (2/3)</small><b>${DA(f.mai)}</b></div></div></div>
+ <div class="card"><h2>Frais payés par la maison</h2><div class="td">Ménage : <b>${DA(f.mn)}</b></div><div class="td">Travaux : <b>${DA(f.tv)}</b></div><div class="td">Citernes : <b>${DA(f.cit)}</b></div><div class="td">Salaires : <b>${DA(f.sal)}</b></div><div class="td">Autres dépenses : <b>${DA(f.dep)}</b></div>
+ <div class="k" style="margin-top:12px"><small>Net maison après frais</small><b class="${f.net<0?'bad':'good'}">${DA(f.net)}</b></div></div>
+ <div class="card"><h2>Autre dépense</h2>${F('depense',[['date','Date','date',td()],['cat','Type',['Produits piscine','Électricité','Réparation','Courses','Autre']],['desc','Description'],['montant','Montant (DA)','number']])}${T(K('depense').filter(x=>inM(x.date,M)),[['Date',x=>esc(x.date)],['Type',x=>esc(x.cat)],['Description',x=>esc(x.desc)],['Montant',x=>DA(x.montant)]])}</div>`}
+};
+const G=[['home','🏠','Accueil'],['sejours','📅','Séjours',[['resa','Réservations'],['clients','Clients']],1],['maison','🏡','Maison',[['stock','Stock'],['menage','Ménage',1],['travaux','Travaux',1]]],['eau','💧','Eau & piscine',[['eau','Puits & pompe'],['citerne','Citernes'],['piscine','Piscine']]],['equipe','💰','Équipe',[['heures','Heures'],['finance','Finance',1]]]];
+function draw(){
+ const gs=G.filter(g=>!g[4]||own());if(!gs.some(g=>g[0]===grp))grp='home';
+ const subs=(gs.find(x=>x[0]===grp)[3]||[]).filter(s=>!s[2]||own()),cur=subs.some(s=>s[0]===S[grp])?S[grp]:(subs[0]?subs[0][0]:'home'),t=td(),oc=K('resa').find(r=>r.arrivee<=t&&t<r.depart);
+ $('#st').className='chip'+(own()?(oc?' occ':' lib'):'');
+ $('#st').textContent=own()?(oc?'Occupée jusqu’au '+oc.depart:'Libre aujourd’hui'):'Espace employé';
+ $('nav').innerHTML=gs.map(x=>`<button class="${x[0]===grp?'on':''}" onclick="grp='${x[0]}';draw();scrollTo(0,0)"><span>${x[1]}</span>${x[2]}</button>`).join('');
+ $('main').innerHTML=(subs.length>1?`<div class="seg">${subs.map(s=>`<button class="${s[0]===cur?'on':''}" onclick="S['${grp}']='${s[0]}';draw()">${s[1]}</button>`).join('')}</div>`:'')+V[cur]()}
+boot();
+</script></body></html>
