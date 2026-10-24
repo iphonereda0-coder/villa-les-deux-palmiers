@@ -123,6 +123,17 @@ tot=r=>+r.total||nights(r)*(+r.prix||0),sum=(a,f)=>a.reduce((s,x)=>s+(+f(x)||0),
 own=()=>role==='proprio',inM=(d,m)=>!m||String(d).startsWith(m),
 busy=r=>K('resa').some(x=>r>=x.arrivee&&r<x.depart);
 function toast(m,bad){const t=$('#toast');t.textContent=m;t.className='on'+(bad?' bad':'');clearTimeout(toast.t);toast.t=setTimeout(()=>t.className='',3200)}
+function postDesktopBackup(){try{const w=window.chrome&&window.chrome.webview;if(w)w.postMessage({type:'villa-backup-snapshot',app:'villa-les-deux-palmiers',savedAt:new Date().toISOString(),records:R})}catch(e){console.warn('Sauvegarde locale indisponible',e)}}
+async function restoreDesktopBackup(rows){
+ if(!Array.isArray(rows))return toast('Fichier de sauvegarde invalide',1);
+ if(!confirm('Restaurer '+rows.length+' fiches depuis la sauvegarde ? Les fiches présentes seront conservées ; les fiches manquantes seront ajoutées.'))return;
+ const clean=rows.filter(r=>r&&r.id&&r.kind).map(({id,kind,at,...data})=>({id,kind,data}));
+ if(!clean.length&&rows.length)return toast('Aucune fiche valide dans la sauvegarde',1);
+ const{error}=await sb.from('records').upsert(clean,{onConflict:'id',ignoreDuplicates:true});
+ if(error)return toast('Restauration impossible : '+error.message,1);
+ await load();toast('Sauvegarde restaurée ✓');
+}
+if(window.chrome&&window.chrome.webview)window.chrome.webview.addEventListener('message',e=>{const m=e.data;if(m&&m.type==='villa-restore-backup'&&m.app==='villa-les-deux-palmiers')restoreDesktopBackup(m.records)});
 
 async function boot(){
  const{data:{session}}=await sb.auth.getSession();
@@ -143,17 +154,18 @@ let lt;const lz=()=>{clearTimeout(lt);lt=setTimeout(load,350)};
 async function load(){try{
  const{data,error}=await sb.from('records').select('*').order('created_at',{ascending:false});if(error)throw error;
  R=data.map(x=>({...x.data,id:x.id,kind:x.kind,at:x.created_at}));
+ postDesktopBackup();
  if(!document.activeElement?.closest('main form'))draw()}catch(e){toast('Chargement impossible : '+(e.message||'réseau'),1)}}
 async function add(kind,data){document.activeElement?.blur();
  const{data:r,error}=await sb.from('records').insert({kind,data}).select().single();
  if(error){toast(error.message,1);return false}
- R.unshift({...r.data,id:r.id,kind:r.kind,at:r.created_at});toast('Enregistré ✓');draw();return true}
+ R.unshift({...r.data,id:r.id,kind:r.kind,at:r.created_at});postDesktopBackup();toast('Enregistré ✓');draw();return true}
 async function upd(id,patch){const i=R.findIndex(x=>x.id===id);if(i<0)return;const old=R[i],{id:_i,kind,at,...d}=old;
  R[i]={...old,...patch};draw();
  const{error}=await sb.from('records').update({data:{...d,...patch}}).eq('id',id);
- if(error){const j=R.findIndex(x=>x.id===id);if(j>=0)R[j]=old;draw();toast(error.message,1)}else toast('Mis à jour ✓')}
+ if(error){const j=R.findIndex(x=>x.id===id);if(j>=0)R[j]=old;draw();toast(error.message,1)}else{postDesktopBackup();toast('Mis à jour ✓')}}
 async function del(id){if(!confirm('Supprimer cette ligne ?'))return;const old=R;R=R.filter(x=>x.id!==id);draw();
- const{error}=await sb.from('records').delete().eq('id',id);if(error){R=old;draw();toast(error.message,1)}else toast('Supprimé')}
+ const{error}=await sb.from('records').delete().eq('id',id);if(error){R=old;draw();toast(error.message,1)}else{postDesktopBackup();toast('Supprimé')}}
 const qty=(id,d)=>upd(id,{qte:Math.max(0,(+R.find(x=>x.id===id).qte||0)+d)});
 
 const ad=(s,n)=>{const d=new Date(s+'T00:00:00Z');d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10)},
