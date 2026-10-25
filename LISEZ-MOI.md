@@ -1,5 +1,7 @@
 # Villa Les Deux Palmiers — installation et module financier
 
+**Version 1.1.0 – Inventaire Pro (25/10/2026).** Maison › Inventaire en 5 onglets (tableau de bord, articles, mouvements, courses, entretiens) ; coût moyen pondéré recalculé à chaque achat ; chaque utilisation, perte, entretien ou traitement piscine est chiffré automatiquement ; journal quotidien de la piscine (produits, quantités, coût du jour) ; entretiens programmés ; la main d’œuvre des entretiens va dans les dépenses. Les données de la 1.0 restent inchangées.
+
 **Version 1.0.0 – Gestion Pro.** PWA installable sur Windows, Android et iPhone/iPad. Chaque saisie est d’abord enregistrée sur l’appareil (IndexedDB), puis synchronisée avec Supabase dès qu’Internet est disponible. Internet n’est nécessaire que pour la toute première connexion d’un appareil.
 
 - Hors ligne : réservations, clients, paiements, cautions, remboursements, dépenses, inventaire, ménage, piscine, citernes, pompe, travaux, configuration et espace propriétaire fonctionnent sans Internet. Les modifications attendent dans une file locale.
