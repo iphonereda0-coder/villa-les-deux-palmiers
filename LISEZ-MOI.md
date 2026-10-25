@@ -1,23 +1,34 @@
-# Villa Les Deux Palmiers — installation gratuite
+# Villa Les Deux Palmiers — installation et module financier
 
-Cette version est une PWA : elle s'installe comme une application sur Windows et peut être ajoutée à l'écran d'accueil d'un téléphone. Elle nécessite Internet pour se connecter et synchroniser les données Supabase. La mise en cache garde la page accessible, mais ne permet pas d'enregistrer des données hors ligne.
+Cette version est une PWA installable sur Windows, Android et iPhone/iPad. Elle conserve les dossiers dans Supabase. La connexion Internet reste nécessaire pour se connecter, enregistrer des opérations et synchroniser les modifications.
 
-## Publier gratuitement avec GitHub Pages
+## Tableau de bord financier
 
-1. Connectez-vous à GitHub et créez un dépôt **public** nommé `villa-les-deux-palmiers`.
-2. Téléversez tous les fichiers de ce dossier à la racine du dépôt.
-3. Dans **Settings → Pages**, sélectionnez **Deploy from a branch**, la branche `main` et le dossier `/ (root)`, puis enregistrez.
-4. Attendez la publication et ouvrez l'adresse indiquée par GitHub Pages. Vérifiez que la page de connexion s'affiche.
+L’écran **Équipe → Finance** présente les recettes réellement enregistrées, les dépenses payées, leur solde opérationnel et la répartition des charges. Les filtres couvrent les six derniers mois, les douze derniers mois ou une période personnalisée. Sélectionnez un mois, un segment ou une catégorie pour afficher les valeurs détaillées.
 
-GitHub Pages et l'utilisation de Supabase peuvent avoir des limites ou conditions propres à leurs offres gratuites. Vérifiez que votre projet Supabase est bien configuré avec des règles RLS sûres pour les tables `records` et `profiles`, car l'application est accessible publiquement sur Internet.
+Le nouveau journal `mouvement_financier` conserve les encaissements de réservation datés, les cautions reçues/remboursées et les paiements de travaux datés. Les cautions restent hors recettes et dépenses d’exploitation. Les montants planifiés et les soldes à recevoir apparaissent séparément des encaissements.
 
-## Installer sur Windows
+Les anciennes réservations ne comportent pas la date réelle des acomptes. Elles ne sont donc pas attribuées à un mois. La section **Rapprocher l’historique** permet de les dater à partir d’un justificatif. Les travaux dont le montant payé est connu mais sans date sont pareillement exclus des totaux mensuels jusqu’au rapprochement. Les dépenses déjà stockées dans les tables de dépenses, achats, citernes, ménage, avances et salaires payés utilisent leur date existante.
 
-Ouvrez le site publié dans Microsoft Edge ou Google Chrome. Cliquez sur l'icône **Installer** dans la barre d'adresse (ou menu `… → Applications → Installer ce site en tant qu’application`). L'application apparaîtra dans le menu Démarrer.
+Le résultat est le **solde opérationnel calculé par l’application**, pas nécessairement un bénéfice comptable net. Il ne comprend notamment pas les réservations non encaissées, les heures non payées, les cautions, les retraits de caisse ni la valeur du stock consommé. Voir `RAPPORT-MODULE-FINANCIER.md` pour l’audit et les règles détaillées.
+
+## Consultation hors ligne
+
+Après une connexion réussie et un chargement complet en ligne, la PWA garde une copie de la synthèse financière agrégée et de l’interface nécessaire. Si la connexion tombe, un propriétaire connecté auparavant peut consulter la dernière synthèse enregistrée en lecture seule. Cette copie contient les dates et montants agrégés, sans noms ni numéros de téléphone. Aucun changement ne peut être enregistré hors ligne; la synchronisation et les autres fonctions de gestion demandent Internet. Au retour du réseau, les dossiers sont rechargés depuis Supabase.
+
+## Calendrier des réservations
+
+Le planning utilise les réservations, les blocages et les tarifs déjà enregistrés. Sur un grand écran, il affiche deux mois côte à côte; sur téléphone, un mois pour garder des cases faciles à toucher. Choisis d’abord l’arrivée puis le départ. Le calendrier montre les séjours, les départs, les dates bloquées, les événements et le tarif indicatif. Il calcule les nuits et l’estimation, signale les chevauchements et permet de préparer une réservation ou de bloquer les dates choisies.
+
+## Ouvrir le site et l’installer
+
+La version mise à jour est publiée ici : [Villa Les Deux Palmiers – Gestion Pro](https://iphonereda0-coder.github.io/villa-les-deux-palmiers/). Elle conserve l’authentification et la base de données existantes. Une connexion Internet est nécessaire pour ouvrir une session, enregistrer des opérations et synchroniser les données.
+
+Sur le Bureau Windows, ouvre le raccourci **VillaLesDeuxPalmiers – Raccourci**. Il ouvre le site dans l’application Windows déjà installée. Pour installer le site dans Edge ou Chrome, ouvre le lien ci-dessus, puis choisis l’icône **Installer** ou le menu … → Applications → Installer ce site en tant qu’application.
 
 ## Ajouter sur téléphone
 
-- **Android (Chrome)** : ouvrez le site, menu `⋮ → Installer l'application` ou `Ajouter à l'écran d'accueil`.
-- **iPhone/iPad (Safari)** : ouvrez le site, bouton **Partager → Sur l'écran d'accueil**.
+- **Android (Chrome)** : ouvrez le site, menu `⋮ → Installer l’application` ou `Ajouter à l’écran d’accueil`.
+- **iPhone/iPad (Safari)** : ouvrez le site, bouton **Partager → Sur l’écran d’accueil**.
 
-Le site doit être servi en HTTPS ; GitHub Pages fournit HTTPS. Après une mise à jour des fichiers, rechargez le site. Le cache hors ligne ne contient que l'interface, pas les dossiers Supabase.
+Le site doit être servi en HTTPS. Après publication d’une mise à jour, rechargez la PWA afin qu’elle installe la nouvelle version du service worker.

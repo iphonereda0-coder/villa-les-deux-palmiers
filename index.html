@@ -120,7 +120,72 @@ button{transition:transform .16s,box-shadow .16s,filter .16s}button:hover{filter
 :root{--a1:#176b5b;--a2:#d6a85f;--p:#2585a5;--g:linear-gradient(135deg,#176b5b,#2585a5)}
 @media(min-width:900px){body{padding-bottom:0}header{margin-left:238px;border-radius:0;padding:15px 26px}main{max-width:none;margin:0 0 0 238px;padding:24px clamp(22px,3vw,52px) 42px}nav{left:0;top:0;bottom:0;right:auto;width:238px;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:7px;padding:22px 13px;border:0;border-radius:0;background:#17252c;box-shadow:4px 0 24px #16252c18}nav:before{content:"🌴 Deux Palmiers";display:block;padding:8px 8px 22px;color:#fff;font-size:1rem;font-weight:800}nav button{display:flex;align-items:center;justify-content:flex-start;gap:10px;flex:none;width:100%;padding:12px 11px;text-align:left;border-radius:10px;background:transparent;color:#c5d0d2;font-size:.82rem}nav span{display:inline-block;width:24px;flex:none;margin:0;text-align:center;font-size:1.1rem}nav button.on{background:#ef6c2f;color:#fff}nav button:hover{background:#263941;color:#fff}nav button.on:hover{background:#e85f25}}
 .private-finance{border:1px solid #e7dbc5;background:linear-gradient(135deg,#fffdf8,#fff)}.private-lock{display:inline-flex;align-items:center;gap:6px;color:#815423;background:#fff4db;border-radius:999px;padding:5px 9px;font-size:.72rem;font-weight:800}
-</style></head><body>
+.fin-dashboard{display:grid;gap:14px}.fin-period{display:flex;justify-content:space-between;align-items:end;gap:18px;background:#fff;border:1px solid #e5ece8;border-radius:18px;padding:18px}.fin-period h2{margin:4px 0 0;font-size:1.15rem;text-transform:capitalize}.fin-period small,.fin-eyebrow,.fin-detail-head small{color:#718091;font-weight:800;font-size:.68rem;letter-spacing:.09em}.fin-period-controls{display:flex;align-items:end;gap:8px;flex-wrap:wrap}.fin-period-controls label{min-width:150px}.fin-period-controls input,.fin-period-controls select{min-width:130px}.fin-period-controls button{white-space:nowrap}.fin-kpis{display:grid;grid-template-columns:repeat(5,minmax(130px,1fr));gap:10px}.fin-kpi{display:flex;flex-direction:column;gap:6px;padding:15px;border-radius:16px;background:#fff;border:1px solid #e7ecef;box-shadow:0 5px 16px #17223508;min-width:0}.fin-kpi small{color:#697789;font-size:.74rem;font-weight:700}.fin-kpi b{font-size:clamp(1.05rem,2vw,1.42rem);line-height:1.15;overflow-wrap:anywhere}.fin-kpi span{font-size:.7rem;color:#718091}.fin-kpi.income{border-top:4px solid #2f7c68}.fin-kpi.expense{border-top:4px solid #d98b4d}.fin-kpi.result{border-top:4px solid #376fa5}.fin-kpi.ratio{border-top:4px solid #9a68bd}.fin-kpi.plan{border-top:4px solid #b7a168}.fin-compare{font-size:.76rem;color:#697789;padding:0 3px}.fin-alert{display:flex;gap:12px;align-items:flex-start;padding:13px 15px;border-radius:13px;font-size:.84rem}.fin-alert b{flex:none}.fin-alert.danger{background:#fff0ee;border:1px solid #f1c8c4;color:#922f2b}.fin-alert.warning{background:#fff7e8;border:1px solid #f0ddba;color:#78531b}.fin-card{margin:0}.fin-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.fin-card-head h2{margin:3px 0 4px}.fin-eyebrow{margin:0}.fin-chart-legend{display:flex;gap:16px;flex-wrap:wrap;color:#68758a;font-size:.74rem;margin:2px 0 8px}.fin-chart-legend span{display:flex;align-items:center;gap:6px}.fin-chart-legend i,.fin-legend-item i,.fin-detail-list i{display:inline-block;width:10px;height:10px;border-radius:3px;flex:none}.fin-svg-wrap{width:100%;overflow-x:auto}.fin-svg{display:block;width:100%;min-width:610px;height:auto}.fin-month{cursor:pointer}.fin-month.selected rect{stroke:#173f38;stroke-width:2}.fin-segment{cursor:pointer;stroke:#fff;stroke-width:1}.fin-segment:hover,.fin-segment-on{stroke:#173f38;stroke-width:3}.fin-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:7px 10px;margin-top:9px}.fin-legend-item{display:flex;gap:8px;align-items:center;background:#f6f8f9;color:#425063;border:1px solid #edf0f3;border-radius:9px;padding:8px;text-align:left;font:600 .73rem Inter,Arial,sans-serif;box-shadow:none}.fin-legend-item.on{background:#eaf3ef;border-color:#96beaf}.fin-detail-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.fin-detail-head h3{margin:3px 0 12px;font-size:1rem}.fin-detail-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:6px 14px;margin-top:12px}.fin-detail-list>div{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #edf0f4;padding:8px 2px;font-size:.82rem}.fin-detail-list>div span{display:flex;align-items:center;gap:7px}.fin-focus{margin-top:10px;padding:10px 12px;background:#f3f7f5;border-radius:10px;color:#285e50;font-size:.82rem}.fin-booking-note{display:flex;gap:9px;flex-direction:column;padding:13px 15px;border-radius:13px;background:#f5f7f8;border:1px solid #e5e9ed;font-size:.82rem;color:#586579}.fin-booking-note b{color:#253548}.fin-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #edf0f4}.fin-row:last-child{border-bottom:0}.fin-row>div:first-child{min-width:0}.fin-row b,.fin-row small{display:block}.fin-row small{font-size:.74rem;color:#68758a;margin-top:3px}.fin-method{display:flex;flex-direction:column;gap:6px;padding:14px 16px;border-radius:14px;background:#eef4f1;border:1px solid #dce9e3;color:#506457;font-size:.78rem}.fin-method b{color:#245447}@media(max-width:900px){.fin-kpis{grid-template-columns:repeat(3,minmax(130px,1fr))}}@media(max-width:620px){.fin-period{align-items:stretch;flex-direction:column;padding:15px}.fin-period-controls{display:grid;grid-template-columns:1fr 1fr}.fin-period-controls label:first-child{grid-column:1/-1}.fin-period-controls button{min-height:44px}.fin-kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.fin-kpi{padding:12px}.fin-kpi.plan{grid-column:1/-1}.fin-alert{flex-direction:column;gap:3px}.fin-row{align-items:flex-start;flex-direction:column}.fin-row .print-actions{width:100%}.fin-row button{flex:1}.fin-svg{min-width:570px}}@media(prefers-reduced-motion:reduce){.fin-svg *{transition:none!important}}.fin-dashboard{display:grid;gap:14px}.fin-period{display:flex;justify-content:space-between;align-items:end;gap:18px;background:#fff;border:1px solid #e5ece8;border-radius:18px;padding:18px}.fin-period h2{margin:4px 0 0;font-size:1.15rem;text-transform:capitalize}.fin-period small,.fin-eyebrow,.fin-detail-head small{color:#718091;font-weight:800;font-size:.68rem;letter-spacing:.09em}.fin-period-controls{display:flex;align-items:end;gap:8px;flex-wrap:wrap}.fin-period-controls label{min-width:150px}.fin-period-controls input,.fin-period-controls select{min-width:130px}.fin-period-controls button{white-space:nowrap}.fin-kpis{display:grid;grid-template-columns:repeat(5,minmax(130px,1fr));gap:10px}.fin-kpi{display:flex;flex-direction:column;gap:6px;padding:15px;border-radius:16px;background:#fff;border:1px solid #e7ecef;box-shadow:0 5px 16px #17223508;min-width:0}.fin-kpi small{color:#697789;font-size:.74rem;font-weight:700}.fin-kpi b{font-size:clamp(1.05rem,2vw,1.42rem);line-height:1.15;overflow-wrap:anywhere}.fin-kpi span{font-size:.7rem;color:#718091}.fin-kpi.income{border-top:4px solid #2f7c68}.fin-kpi.expense{border-top:4px solid #d98b4d}.fin-kpi.result{border-top:4px solid #376fa5}.fin-kpi.ratio{border-top:4px solid #9a68bd}.fin-kpi.plan{border-top:4px solid #b7a168}.fin-compare{font-size:.76rem;color:#697789;padding:0 3px}.fin-alert{display:flex;gap:12px;align-items:flex-start;padding:13px 15px;border-radius:13px;font-size:.84rem}.fin-alert b{flex:none}.fin-alert.danger{background:#fff0ee;border:1px solid #f1c8c4;color:#922f2b}.fin-alert.warning{background:#fff7e8;border:1px solid #f0ddba;color:#78531b}.fin-card{margin:0}.fin-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.fin-card-head h2{margin:3px 0 4px}.fin-eyebrow{margin:0}.fin-chart-legend{display:flex;gap:16px;flex-wrap:wrap;color:#68758a;font-size:.74rem;margin:2px 0 8px}.fin-chart-legend span{display:flex;align-items:center;gap:6px}.fin-chart-legend i,.fin-legend-item i,.fin-detail-list i{display:inline-block;width:10px;height:10px;border-radius:3px;flex:none}.fin-svg-wrap{width:100%;overflow-x:auto}.fin-svg{display:block;width:100%;min-width:610px;height:auto}.fin-month{cursor:pointer}.fin-month.selected rect{stroke:#173f38;stroke-width:2}.fin-segment{cursor:pointer;stroke:#fff;stroke-width:1}.fin-segment:hover,.fin-segment-on{stroke:#173f38;stroke-width:3}.fin-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:7px 10px;margin-top:9px}.fin-legend-item{display:flex;gap:8px;align-items:center;background:#f6f8f9;color:#425063;border:1px solid #edf0f3;border-radius:9px;padding:8px;text-align:left;font:600 .73rem Inter,Arial,sans-serif;box-shadow:none}.fin-legend-item.on{background:#eaf3ef;border-color:#96beaf}.fin-detail-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.fin-detail-head h3{margin:3px 0 12px;font-size:1rem}.fin-detail-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:6px 14px;margin-top:12px}.fin-detail-list>div{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #edf0f4;padding:8px 2px;font-size:.82rem}.fin-detail-list>div span{display:flex;align-items:center;gap:7px}.fin-focus{margin-top:10px;padding:10px 12px;background:#f3f7f5;border-radius:10px;color:#285e50;font-size:.82rem}.fin-booking-note{display:flex;gap:9px;flex-direction:column;padding:13px 15px;border-radius:13px;background:#f5f7f8;border:1px solid #e5e9ed;font-size:.82rem;color:#586579}.fin-booking-note b{color:#253548}.fin-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #edf0f4}.fin-row:last-child{border-bottom:0}.fin-row>div:first-child{min-width:0}.fin-row b,.fin-row small{display:block}.fin-row small{font-size:.74rem;color:#68758a;margin-top:3px}.fin-method{display:flex;flex-direction:column;gap:6px;padding:14px 16px;border-radius:14px;background:#eef4f1;border:1px solid #dce9e3;color:#506457;font-size:.78rem}.fin-method b{color:#245447}@media(max-width:900px){.fin-kpis{grid-template-columns:repeat(3,minmax(130px,1fr))}}@media(max-width:620px){.fin-period{align-items:stretch;flex-direction:column;padding:15px}.fin-period-controls{display:grid;grid-template-columns:1fr 1fr}.fin-period-controls label:first-child{grid-column:1/-1}.fin-period-controls button{min-height:44px}.fin-kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.fin-kpi{padding:12px}.fin-kpi.plan{grid-column:1/-1}.fin-alert{flex-direction:column;gap:3px}.fin-row{align-items:flex-start;flex-direction:column}.fin-row .print-actions{width:100%}.fin-row button{flex:1}.fin-svg{min-width:570px}}@media(prefers-reduced-motion:reduce){.fin-svg *{transition:none!important}}</style><style id="calendar-premium-styles">
+/* Calendrier séjours : vue claire, réservations d’un seul regard, gestes adaptés au téléphone. */
+.calendar-page{display:grid;gap:14px;color:#172235}
+.cal-toolbar-card,.cal-calendar-card,.cal-info-card{background:#fff;border:1px solid #e6ebef;border-radius:20px;box-shadow:0 5px 20px #17223509}
+.cal-toolbar-card{padding:20px 22px 16px}
+.cal-toolbar{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.cal-title{min-width:0}.cal-eyebrow{display:block;color:#718091;font-size:.66rem;font-weight:850;letter-spacing:.12em}
+.cal-title h2{margin:5px 0 5px;font-size:1.35rem;letter-spacing:-.04em}
+.cal-title p,.cal-hint{color:#68758a;font-size:.82rem;line-height:1.5}
+.cal-toolbar-actions{display:flex;align-items:center;gap:10px;flex:none}
+.cal-new-booking{white-space:nowrap;min-height:44px;padding:10px 15px;background:#176b5b;color:#fff;box-shadow:0 5px 12px #176b5b20}
+.cal-nav{display:flex;align-items:center;gap:4px;padding:4px;border:1px solid #e4e9ee;border-radius:13px;background:#f7f9fa}
+.cal-nav button{min-height:38px;border:0;box-shadow:none}.cal-arrow{width:38px;padding:5px;background:#fff;color:#344256;font:700 1.4rem Arial,sans-serif}.cal-today{padding:7px 11px;background:transparent;color:#344256;font-size:.76rem}
+.cal-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:18px}
+.cal-stats>div{display:flex;flex-direction:column;gap:4px;padding:12px 14px;border:1px solid #edf0f3;border-radius:14px;background:#f8fafb}
+.cal-stats small{color:#738094;font-size:.63rem;font-weight:800;letter-spacing:.08em}.cal-stats b{font-size:1.12rem;font-weight:800;letter-spacing:-.025em}
+.cal-calendar-card{padding:20px 22px}
+.cal-period-heading{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:17px}
+.cal-period-heading h3,.cal-list-heading h3{margin:4px 0 0;font-size:1.03rem;font-weight:780;letter-spacing:-.025em;text-transform:capitalize}
+.cal-period-note{color:#768396;font-size:.74rem}
+.cal-months{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px}
+.cal-month{min-width:0}.cal-month-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.cal-month-heading h3{font-size:.95rem;font-weight:750;text-transform:capitalize}.cal-month-heading>span{padding:4px 9px;border-radius:99px;background:#f1f5f3;color:#527266;font-size:.66rem;font-weight:750;white-space:nowrap}
+.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px;text-align:center}
+.cal-weekday{display:grid;place-items:center;min-height:25px;color:#8490a0;font-size:.65rem;font-weight:750;text-transform:uppercase;letter-spacing:.03em}
+.cal-empty{min-height:76px}
+.cal-day{position:relative;isolation:isolate;display:flex;min-width:0;min-height:76px;flex-direction:column;align-items:stretch;justify-content:space-between;gap:5px;overflow:hidden;padding:7px 6px 8px;border:1px solid transparent;border-radius:11px;background:#fff;color:#26364a;text-align:left;font:inherit;box-shadow:none;transition:background .16s,border-color .16s,box-shadow .16s,transform .16s}
+.cal-day:hover{z-index:2;border-color:#b7d2c9;background:#f8fbf9;box-shadow:0 3px 12px #173f3812;transform:translateY(-1px)}
+.cal-day:focus-visible{z-index:3;outline:3px solid #96c3b5;outline-offset:1px}
+.cal-day-number{position:relative;z-index:1;display:grid;place-items:center;width:29px;height:29px;border-radius:50%;font-size:.8rem;font-weight:700}
+.cal-day::before{position:absolute;z-index:0;right:5px;bottom:8px;left:5px;height:5px;border-radius:9px;background:var(--stay-color,#dce4e8);content:"";opacity:0;transition:opacity .16s}
+.cal-day.is-booked{background:color-mix(in srgb,var(--stay-color,#176b5b) 8%,#fff)}.cal-day.is-booked::before{opacity:.85}
+.cal-day.is-booked:not(.has-arrival)::before{right:0;left:0;border-radius:0}
+.cal-day.has-arrival::before{right:0;left:50%;border-radius:0 9px 9px 0}
+.cal-day.has-departure:not(.is-booked)::before{right:50%;left:0;border-radius:9px 0 0 9px;opacity:.55}
+.cal-day.is-turnover::before{right:0;left:0;background:linear-gradient(90deg,var(--departure-color) 0 48%,#fff 48% 52%,var(--arrival-color) 52%);opacity:.9}
+.cal-day.is-blocked{background:repeating-linear-gradient(135deg,#faf8f5,#faf8f5 7px,#f0ece5 7px,#f0ece5 10px);border-color:#eee5d8}
+.cal-day.is-blocked .cal-day-number{color:#7b654c}
+.cal-day.is-range{background:#eaf3ef;border-color:#d8e8e1}
+.cal-day.is-start,.cal-day.is-end{background:#176b5b;border-color:#176b5b;color:#fff;box-shadow:0 4px 12px #176b5b30}
+.cal-day.is-start .cal-day-number,.cal-day.is-end .cal-day-number{background:#fff;color:#176b5b}
+.cal-day.is-start::before,.cal-day.is-end::before{opacity:.35;background:#fff}
+.cal-day.is-today:not(.is-start):not(.is-end) .cal-day-number{outline:2px solid #d5ad67;outline-offset:1px}
+.cal-day.has-event:not(.is-start):not(.is-end)::after{position:absolute;top:7px;right:7px;width:6px;height:6px;border-radius:50%;background:#c2413a;content:""}
+.cal-stay-label,.cal-stay-note,.cal-day-note,.cal-price,.cal-turnover{position:relative;z-index:1;display:block;overflow:hidden;width:100%;padding:3px 4px;border-radius:6px;font-size:.58rem;font-weight:750;line-height:1.15;text-overflow:ellipsis;white-space:nowrap}
+.cal-stay-label{background:var(--stay-color,#176b5b);color:#fff}
+.cal-stay-note{color:#537266}.cal-day-note{color:#77674f}.cal-price{color:#68758a;font-size:.61rem;font-weight:650}
+.cal-turnover{background:#f4ece2;color:#7b5636;font-size:.53rem}
+.cal-day.is-start .cal-stay-label,.cal-day.is-end .cal-day-note,.cal-day.is-start .cal-price,.cal-day.is-end .cal-price{background:#ffffff20;color:#fff}
+.cal-legend{display:flex;align-items:center;gap:14px 19px;flex-wrap:wrap;margin-top:17px;padding-top:14px;border-top:1px solid #edf0f2;color:#667386;font-size:.7rem}
+.cal-legend span{display:inline-flex;align-items:center;gap:6px}.cal-legend-dot{width:9px;height:9px;border-radius:50%;display:inline-block}.cal-legend-dot.available{background:#e7ecef}.cal-legend-dot.booked{background:#176b5b}.cal-legend-dot.blocked{background:#c9bca9}.cal-legend-dot.today{background:#d6a85f}.cal-legend-price{margin-left:auto}
+.cal-lower{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:14px}
+.cal-info-card{min-width:0;padding:18px 20px}.cal-selection{display:grid;gap:12px;min-height:100%}.cal-selection-top,.cal-list-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.cal-step{color:#718091;font-size:.64rem;font-weight:850;letter-spacing:.1em}.cal-selection h3{margin:4px 0 0;font-size:1.02rem;line-height:1.35;text-transform:capitalize}
+.cal-selection-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}.cal-selection-stats>div{display:grid;gap:4px;padding:11px;border:1px solid #edf0f3;border-radius:12px;background:#f8fafb}.cal-selection-stats small{color:#738094;font-size:.68rem}.cal-selection-stats b{font-size:.88rem}
+.cal-available,.cal-hint{font-size:.78rem;color:#68758a}.cal-available{padding:10px 12px;border-radius:10px;background:#eef7f2;color:#28634e}.cal-warning{padding:10px 12px;border-radius:10px;background:#fff3e8;color:#85531c;font-size:.76rem;font-weight:650}
+.cal-selection-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}.cal-selection-actions button{flex:1;min-height:42px}.cal-empty-selection{align-content:center;justify-items:start}.cal-empty-selection h3{margin-top:0}.cal-empty-selection>button{min-height:42px}
+.cal-bookings{display:grid;margin-top:12px}.cal-booking{display:grid;grid-template-columns:10px minmax(0,1fr) auto;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid #edf0f3}.cal-booking:last-child{border-bottom:0}.cal-booking-color{width:9px;height:36px;border-radius:99px}.cal-booking-info{min-width:0}.cal-booking-line{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.cal-booking-line b{font-size:.82rem}.cal-booking-info small{display:block;margin-top:3px;color:#68758a;font-size:.7rem}.cal-booking-money{margin-top:4px;color:#435367;font-size:.72rem;font-weight:700}.cal-booking>button{white-space:nowrap}
+@media(max-width:1099px){.cal-months{grid-template-columns:minmax(0,650px);justify-content:center}.cal-secondary-month,.cal-range-dash{display:none}.cal-period-note{display:none}}
+@media(max-width:820px){.cal-lower{grid-template-columns:1fr}}
+@media(max-width:620px){.cal-toolbar-card,.cal-calendar-card{padding:16px 14px}.cal-toolbar{align-items:stretch;flex-direction:column}.cal-toolbar-actions{justify-content:space-between;flex-wrap:wrap}.cal-new-booking{flex:1}.cal-stats{gap:6px;margin-top:14px}.cal-stats>div{padding:10px 9px}.cal-stats small{font-size:.56rem}.cal-stats b{font-size:1rem}.cal-months{grid-template-columns:minmax(0,1fr)}.cal-period-heading{align-items:flex-start}.cal-period-heading h3{font-size:.98rem}.cal-grid{gap:2px}.cal-empty{min-height:62px}.cal-day{min-height:62px;padding:5px 3px 7px;border-radius:9px}.cal-day-number{width:26px;height:26px;font-size:.74rem}.cal-stay-label,.cal-stay-note,.cal-day-note,.cal-price{padding:3px 2px;font-size:.51rem}.cal-turnover{padding:2px 1px;font-size:.46rem}.cal-legend{gap:10px 12px}.cal-legend-price{margin-left:0}.cal-info-card{padding:15px 14px}.cal-selection-stats{grid-template-columns:1fr 1fr}.cal-booking{grid-template-columns:8px minmax(0,1fr) auto;gap:8px}.cal-booking>button{padding:7px 9px;font-size:.72rem}}
+@media(max-width:390px){.cal-day{min-height:56px;padding:4px 2px 6px}.cal-empty{min-height:56px}.cal-day-number{width:24px;height:24px}.cal-stay-label,.cal-stay-note,.cal-day-note,.cal-price{font-size:.46rem}.cal-toolbar-actions{gap:7px}.cal-new-booking{font-size:.78rem;padding:9px 10px}.cal-today{padding:6px 8px}}
+@media(prefers-reduced-motion:reduce){.cal-day,.cal-day::before{transition:none!important;animation:none!important}}
+
+</style>
+</head><body>
 <div id="login" hidden><div class="card"><h1>Villa Les Deux Palmiers</h1><p class="mu" style="margin-top:6px">Votre espace de gestion</p>
 <form onsubmit="return login(event)" style="grid-template-columns:1fr;margin-top:16px">
 <label>E-mail<input name="email" type="email" autocapitalize="off" autocorrect="off" required></label>
@@ -156,13 +221,13 @@ async function restoreDesktopBackup(rows){
 if(window.chrome&&window.chrome.webview)window.chrome.webview.addEventListener('message',e=>{const m=e.data;if(m&&m.type==='villa-restore-backup'&&m.app==='villa-les-deux-palmiers')restoreDesktopBackup(m.records)});
 
 async function boot(){
- const{data:{session}}=await sb.auth.getSession();
+ let session=null;try{const response=await sb.auth.getSession();session=response.data?.session||null}catch(e){}
  if(!session){$('#login').hidden=false;return}
- $('#login').hidden=true;$('#app').hidden=false;
- const{data:p}=await sb.from('profiles').select('role').eq('id',session.user.id).single();
- role=p?.role||'employe';
+ ACTIVE_USER_ID=session.user.id;$('#login').hidden=true;$('#app').hidden=false;
+ let profile=null;if(navigator.onLine){try{const response=await sb.from('profiles').select('role').eq('id',session.user.id).single();profile=response.data}catch(e){}}
+ if(profile?.role){role=profile.role;try{localStorage.setItem(financialRoleKey(ACTIVE_USER_ID),role)}catch(e){}}else if(!navigator.onLine&&cachedRole(ACTIVE_USER_ID))role=cachedRole(ACTIVE_USER_ID);else role='employe';
  await load();
- sb.channel('r').on('postgres_changes',{event:'*',schema:'public',table:'records'},lz).subscribe();
+ if(navigator.onLine)sb.channel('r').on('postgres_changes',{event:'*',schema:'public',table:'records'},lz).subscribe();
  sb.auth.onAuthStateChange(e=>{if(e==='SIGNED_OUT')location.reload()});
  document.addEventListener('visibilitychange',()=>{if(!document.hidden)load();else lockVault(false)});
  addEventListener('offline',()=>toast('Pas de connexion internet',1));addEventListener('online',()=>{toast('Connexion rétablie');load()});
@@ -173,19 +238,21 @@ async function login(e){e.preventDefault();const b=e.target.querySelector('butto
 let lt;const lz=()=>{clearTimeout(lt);lt=setTimeout(load,350)};
 async function load(){try{
  const{data,error}=await sb.from('records').select('*').order('created_at',{ascending:false});if(error)throw error;
- R=data.map(x=>({...x.data,id:x.id,kind:x.kind,at:x.created_at}));
- postDesktopBackup();
- if(!document.activeElement?.closest('main form'))draw()}catch(e){toast('Chargement impossible : '+(e.message||'réseau'),1)}}
+ R=data.map(x=>({...x.data,id:x.id,kind:x.kind,at:x.created_at}));FIN_OFFLINE=false;OFFLINE_FINANCE=null;saveFinancialCache();postDesktopBackup();
+ if(!document.activeElement?.closest('main form'))draw()}catch(e){
+ let session=null;try{const response=await sb.auth.getSession();session=response.data?.session||null}catch(err){}
+ const cached=session?.user?.id?readFinancialCache(session.user.id):null;
+ if(cached&&role==='proprio'){R=[];FIN_OFFLINE=true;OFFLINE_FINANCE=cached;grp='equipe';S.equipe='finance';draw();toast('Hors ligne · dernière synthèse financière disponible');return}
+ toast('Chargement impossible : '+(e.message||'réseau'),1)}}
 async function add(kind,data){document.activeElement?.blur();
  const{data:r,error}=await sb.from('records').insert({kind,data}).select().single();
  if(error){toast(error.message,1);return false}
- R.unshift({...r.data,id:r.id,kind:r.kind,at:r.created_at});postDesktopBackup();toast('Enregistré ✓');draw();return true}
+ R.unshift({...r.data,id:r.id,kind:r.kind,at:r.created_at});postDesktopBackup();saveFinancialCache();toast('Enregistré ✓');draw();return true}
 async function upd(id,patch){const i=R.findIndex(x=>x.id===id);if(i<0)return;const old=R[i],{id:_i,kind,at,...d}=old;
  R[i]={...old,...patch};draw();
  const{error}=await sb.from('records').update({data:{...d,...patch}}).eq('id',id);
- if(error){const j=R.findIndex(x=>x.id===id);if(j>=0)R[j]=old;draw();toast(error.message,1);return false}else{postDesktopBackup();toast('Mis à jour ✓');return true}}
-async function del(id){if(!confirm('Supprimer cette ligne ?'))return;const old=R;R=R.filter(x=>x.id!==id);draw();
- const{error}=await sb.from('records').delete().eq('id',id);if(error){R=old;draw();toast(error.message,1)}else{postDesktopBackup();toast('Supprimé')}}
+ if(error){const j=R.findIndex(x=>x.id===id);if(j>=0)R[j]=old;draw();toast(error.message,1);return false}else{postDesktopBackup();saveFinancialCache();toast('Mis à jour ✓');return true}}
+async function del(id){if(!confirm('Supprimer cette ligne ?'))return;const record=R.find(x=>x.id===id);let workChange=null;if(record?.kind==='mouvement_financier'&&record.type==='travaux_paye'){const w=R.find(x=>x.kind==='travaux'&&x.id===record.travaux_id);if(w){const oldPaid=finNum(w.paye);workChange={id:w.id,oldPaid,amount:finNum(record.montant)};if(!await upd(w.id,{paye:Math.max(0,oldPaid-workChange.amount)}))return}}const old=R;R=R.filter(x=>x.id!==id);draw();const{error}=await sb.from('records').delete().eq('id',id);if(error){R=old;draw();if(workChange)await upd(workChange.id,{paye:workChange.oldPaid});toast(error.message,1)}else{postDesktopBackup();saveFinancialCache();toast('Supprimé')}}
 const qty=(id,d)=>upd(id,{qte:Math.max(0,(+R.find(x=>x.id===id).qte||0)+d)});
 
 const ad=(s,n)=>{const d=new Date(s+'T00:00:00Z');d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10)},
@@ -242,7 +309,7 @@ async function sub(e,kind){e.preventDefault();const f=e.target,b=f.querySelector
    o.article=x.article;o.cat=x.cat;o.unite=before.unite;o.cout_unitaire=before.cout_unitaire;o.cout=Math.round(amount*before.cout_unitaire);o.montant=o.cout;
   }
  }
- b.disabled=true;const ok=await add(kind,o);b.disabled=false;if(!ok&&stockRollback)await upd(stockRollback.id,stockRollback.before);if(ok){f.reset();if(kind==='resa'){selA=selB='';S.sejours='cale';draw()}}return false}
+ b.disabled=true;const ok=await add(kind,o);b.disabled=false;if(!ok&&stockRollback)await upd(stockRollback.id,stockRollback.before);if(ok&&kind==='resa'&&+o.acompte>0&&R[0]?.kind==='resa'){const fresh=R[0];const paid=await add('mouvement_financier',{type:'encaissement',source:'initial',date:td(),montant:+o.acompte,reservation_id:fresh.id,note:'Acompte enregistré avec la réservation'});if(!paid)toast('Réservation créée ; datez son acompte dans le rapprochement financier.',1)}if(ok){f.reset();if(kind==='resa'){selA=selB='';S.sejours='cale';draw()}}return false}
 const F=(kind,fs,btn='Ajouter')=>`<form onsubmit="return sub(event,'${kind}')">${fs.map(([n,l,t,v,o])=>`<label>${l}${Array.isArray(t)?`<select name="${n}">${t.map(x=>`<option>${x}</option>`).join('')}</select>`:`<input name="${n}" type="${t||'text'}" ${t==='number'?'step="any" min="0" inputmode="decimal"':''} value="${esc(v)}" ${o?'':'required'}>`}</label>`).join('')}<button>${btn}</button></form>`;
 function stockMoveForm(kind,category=''){
  const products=K('stock').filter(x=>!category||x.cat===category),opts=products.map(x=>`<option value="${esc(x.id)}">${esc(x.article)} · stock ${esc(x.qte)} ${esc(x.unite||'unité')}</option>`).join('');
@@ -253,9 +320,284 @@ const lit=(x,d)=>x.litres>0?(x.sens==='Ajout'?-x.litres:x.litres):(+x.min||0)*d;
 function water(){const ref=K('eau_ref')[0];if(!ref)return null;
  const lm=ref.lm||Math.PI*(ref.diam/2)**2*1000,max=(+(ref.profondeur||16))*lm,used=sum(K('pompe').filter(p=>p.at>ref.at),p=>lit(p,ref.debit)),
  left=Math.min(max,Math.max(0,ref.niv*lm-used));return{left,max,used,lm,ref,h:left/lm}}
+let FPERIOD='6m',FSTART='',FEND='',FSEL='',FCAT='',ACTIVE_USER_ID='',FIN_OFFLINE=false,OFFLINE_FINANCE=null;
+const FIN_CATEGORIES=[
+ {name:'Ménage et entretien',color:'#2f7c68'},
+ {name:'Piscine et produits',color:'#2396b3'},
+ {name:'Électricité, eau et carburant',color:'#d18a35'},
+ {name:'Réparations et travaux',color:'#9a68bd'},
+ {name:'Salaires et paiements des employés',color:'#d05252'},
+ {name:'Achats et équipements',color:'#526f9d'},
+ {name:'Autres dépenses',color:'#8b929c'}
+];
+function isFinDate(s){
+ if(typeof s!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(s))return false;
+ const d=new Date(s+'T00:00:00');
+ const p=s.split('-').map(Number);return !isNaN(d.getTime())&&d.getFullYear()===p[0]&&d.getMonth()+1===p[1]&&d.getDate()===p[2];
+}
+function finNum(v){const n=Number(v);return Number.isFinite(n)&&n>0?n:0}
+function finCat(raw){
+ const s=String(raw||'').toLowerCase();
+ if(s.includes('piscin')||s.includes('chlore')||s.includes('anti-alg'))return FIN_CATEGORIES[1].name;
+ if(s.includes('répar')||s.includes('repar')||s.includes('travaux')||s.includes('artisan'))return FIN_CATEGORIES[3].name;
+ if(s.includes('groupe électrogène')||s.includes('groupe electrogene')||s.includes('électricité')||s.includes('electricite')||s.includes('eau')||s.includes('gasoil')||s.includes('carburant')||s.includes('fuel'))return FIN_CATEGORIES[2].name;
+ if(s.includes('ménage')||s.includes('menage')||s.includes('entretien')||s.includes('citerne'))return FIN_CATEGORIES[0].name;
+ if(s.includes('achat')||s.includes('stock')||s.includes('équipement')||s.includes('equipement'))return FIN_CATEGORIES[5].name;
+ return FIN_CATEGORIES[6].name;
+}
+function ledgerBy(records,type,key){
+ const out={};
+ for(const x of records)if(x.kind==='mouvement_financier'&&x.type===type&&x[key])out[x[key]]=(out[x[key]]||0)+finNum(x.montant);
+ return out;
+}
+function financialModelFromRows(records){
+ const movements=records.filter(x=>x.kind==='mouvement_financier');
+ const coveredByReservation=ledgerBy(movements.filter(x=>x.source!=='nouveau'),'encaissement','reservation_id');
+ const newPaidByReservation=ledgerBy(movements.filter(x=>x.source==='nouveau'),'encaissement','reservation_id');
+ const paidByWork=ledgerBy(movements,'travaux_paye','travaux_id');
+ const cautionReceived=ledgerBy(movements,'caution_recue','reservation_id');
+ const cautionRefunded=ledgerBy(movements,'caution_remboursee','reservation_id');
+ const receipts=[],expenses=[],cautions=[];
+ let undatedReceiptAmount=0,undatedReceiptCount=0,undatedWorkAmount=0,undatedExpenseAmount=0,undatedExpenseCount=0;
+ const addReceipt=(date,amount)=>{amount=finNum(amount);if(!amount)return;if(isFinDate(date))receipts.push({date,amount});else{undatedReceiptAmount+=amount;undatedReceiptCount++}};
+ const addExpense=(date,amount,category)=>{amount=finNum(amount);if(!amount)return;if(isFinDate(date))expenses.push({date,amount,category:category||FIN_CATEGORIES[6].name});else{undatedExpenseAmount+=amount;undatedExpenseCount++}};
+ for(const x of movements){
+  const amount=finNum(x.montant);
+  if(x.type==='encaissement')addReceipt(x.date,amount);
+  if(x.type==='travaux_paye'&&amount){if(isFinDate(x.date))expenses.push({date:x.date,amount,category:FIN_CATEGORIES[3].name});else undatedWorkAmount+=amount;}
+  if(x.type==='caution_recue'||x.type==='caution_remboursee'){
+   if(isFinDate(x.date)&&amount)cautions.push({date:x.date,amount,type:x.type});
+  }
+ }
+ for(const x of records){
+  if(x.kind==='depense')addExpense(x.date,x.montant,finCat(x.cat));
+  else if(x.kind==='achat'||x.kind==='stock_achat')addExpense(x.date,x.montant,FIN_CATEGORIES[5].name);
+  else if(x.kind==='citerne')addExpense(x.date,x.prix,FIN_CATEGORIES[2].name);
+  else if(x.kind==='menage')addExpense(x.date,x.montant,FIN_CATEGORIES[0].name);
+  else if(x.kind==='avance'||x.kind==='salaire_paye')addExpense(x.date,x.montant,FIN_CATEGORIES[4].name);
+ }
+ const bookings=records.filter(x=>x.kind==='resa').map(x=>{
+  const covered=coveredByReservation[x.id]||0,newPaid=newPaidByReservation[x.id]||0,paid=finNum(x.acompte)+newPaid;
+  const received=cautionReceived[x.id]||0,refunded=cautionRefunded[x.id]||0;
+  return{id:x.id,client:x.client||'Réservation',arrival:x.arrivee||'',total:finNum(x.total)||tot(x),paid,due:Math.max(0,(finNum(x.total)||tot(x))-paid),legacyUndated:Math.max(0,finNum(x.acompte)-covered),cautionExpected:finNum(x.caution),cautionReceived:received,cautionRefunded:refunded,cautionBalance:Math.max(0,received-refunded)};
+ });
+ for(const b of bookings)if(b.legacyUndated>0){undatedReceiptAmount+=b.legacyUndated;undatedReceiptCount++}
+ for(const x of records)if(x.kind==='travaux')undatedWorkAmount+=Math.max(0,finNum(x.paye)-(paidByWork[x.id]||0));
+
+ return{receipts,expenses,cautions,bookings,undatedReceiptAmount,undatedReceiptCount,undatedWorkAmount,undatedExpenseAmount,undatedExpenseCount};
+}
+function financialCacheKey(id){return'villa-finance-v1:'+id}
+function financialRoleKey(id){return'villa-role-v1:'+id}
+function saveFinancialCache(){
+ if(role!=='proprio'||!ACTIVE_USER_ID||FIN_OFFLINE)return;
+ try{
+  const m=financialModelFromRows(R);
+  const safe={savedAt:new Date().toISOString(),receipts:m.receipts,expenses:m.expenses,cautions:m.cautions,bookings:m.bookings.map(b=>({arrival:b.arrival,total:b.total,paid:b.paid,due:b.due,cautionExpected:b.cautionExpected,cautionReceived:b.cautionReceived,cautionRefunded:b.cautionRefunded,cautionBalance:b.cautionBalance})),undatedReceiptAmount:m.undatedReceiptAmount,undatedReceiptCount:m.undatedReceiptCount,undatedWorkAmount:m.undatedWorkAmount,undatedExpenseAmount:m.undatedExpenseAmount,undatedExpenseCount:m.undatedExpenseCount};
+  localStorage.setItem(financialCacheKey(ACTIVE_USER_ID),JSON.stringify(safe));
+ }catch(e){console.warn('Cache financière indisponible',e)}
+}
+function readFinancialCache(id){
+ try{const x=JSON.parse(localStorage.getItem(financialCacheKey(id))||'null');if(!x||!Array.isArray(x.receipts)||!Array.isArray(x.expenses)||!Array.isArray(x.bookings))return null;return x}catch(e){return null}
+}
+function cachedRole(id){try{return localStorage.getItem(financialRoleKey(id))||''}catch(e){return''}}
+function paidAmount(r){const rows=R.filter(x=>x.kind==='mouvement_financier'&&x.type==='encaissement'&&x.reservation_id===r.id&&x.source==='nouveau');return finNum(r.acompte)+sum(rows,x=>x.montant)}
+function cautionTotals(id){const xs=R.filter(x=>x.kind==='mouvement_financier'&&x.reservation_id===id);return{received:sum(xs.filter(x=>x.type==='caution_recue'),x=>x.montant),refunded:sum(xs.filter(x=>x.type==='caution_remboursee'),x=>x.montant)}}
+function finPromptDate(label,initial){
+ const date=prompt(label+' (AAAA-MM-JJ)',initial||td());
+ if(date===null)return null;
+ if(!isFinDate(date)){toast('Date invalide. Utilise le format AAAA-MM-JJ.',1);return null}
+ return date;
+}
+async function recordReservationPayment(id,legacy){
+ if(FIN_OFFLINE)return toast('Une connexion est nécessaire pour enregistrer le paiement.',1);
+ const r=R.find(x=>x.id===id&&x.kind==='resa');if(!r)return;
+ const covered=sum(R.filter(x=>x.kind==='mouvement_financier'&&x.type==='encaissement'&&x.reservation_id===id&&x.source!=='nouveau'),x=>x.montant);
+ const max=legacy?Math.max(0,finNum(r.acompte)-covered):Math.max(0,tot(r)-paidAmount(r));
+ if(!(max>0))return toast(legacy?'Aucun acompte sans date à rapprocher.':'Aucun solde à encaisser.');
+ const value=prompt(legacy?'Montant historique à dater (DA) — sans dépasser le reste non daté':'Montant réellement encaissé (DA)',String(max));
+ if(value===null)return;
+ const amount=Number(value);if(!Number.isFinite(amount)||amount<=0||amount>max){toast('Montant invalide ou supérieur au solde.',1);return}
+ const date=finPromptDate('Date réelle de l’encaissement',td());if(!date)return;
+ const ok=await add('mouvement_financier',{type:'encaissement',date,montant:amount,reservation_id:id,source:legacy?'historique':'nouveau',note:legacy?'Rapprochement d’un acompte historique':'Paiement de réservation'});
+ if(ok)toast('Encaissement daté et ajouté au tableau de bord ✓');
+}
+async function recordCaution(id,type){
+ if(FIN_OFFLINE)return toast('Une connexion est nécessaire pour enregistrer la caution.',1);
+ const r=R.find(x=>x.id===id&&x.kind==='resa');if(!r)return;
+ const c=cautionTotals(id),max=type==='caution_remboursee'?c.received-c.refunded:(finNum(r.caution)>0?Math.max(0,finNum(r.caution)-c.received):Infinity);
+ const promptLabel=type==='caution_recue'?'Caution réellement reçue (DA)':'Caution réellement remboursée (DA)';
+ const value=prompt(promptLabel+(Number.isFinite(max)?' · maximum '+DA(max):''),Number.isFinite(max)?String(max):'');
+ if(value===null)return;
+ const amount=Number(value);if(!Number.isFinite(amount)||amount<=0||amount>max){toast('Montant invalide ou supérieur au solde de caution.',1);return}
+ const date=finPromptDate('Date réelle de l’opération',td());if(!date)return;
+ const ok=await add('mouvement_financier',{type,date,montant:amount,reservation_id:id,note:type==='caution_recue'?'Caution remboursable':'Remboursement de caution'});
+ if(ok)toast('Mouvement de caution enregistré hors recettes et dépenses ✓');
+}
+async function dateLegacyWorkPayment(id){
+ if(FIN_OFFLINE)return toast('Une connexion est nécessaire pour rapprocher le paiement.',1);
+ const x=R.find(r=>r.id===id&&r.kind==='travaux');if(!x)return;
+ const linked=sum(R.filter(r=>r.kind==='mouvement_financier'&&r.type==='travaux_paye'&&r.travaux_id===id),r=>r.montant);
+ const max=Math.max(0,finNum(x.paye)-linked);if(!max)return;
+ const value=prompt('Montant de travaux déjà payé à dater (DA)',String(max));if(value===null)return;
+ const amount=Number(value);if(!Number.isFinite(amount)||amount<=0||amount>max){toast('Montant invalide ou supérieur au montant non daté.',1);return}
+ const date=finPromptDate('Date réelle du paiement',td());if(!date)return;
+ const ok=await add('mouvement_financier',{type:'travaux_paye',date,montant:amount,travaux_id:id,note:'Rapprochement d’un paiement de travaux'});
+ if(ok)toast('Paiement de travaux daté ✓');
+}
+async function dateLegacyExpense(id){
+ if(FIN_OFFLINE)return toast('Une connexion est nécessaire pour rapprocher cette dépense.',1);
+ const kinds=['depense','achat','stock_achat','citerne','menage','avance','salaire_paye'];
+ const x=R.find(r=>r.id===id&&kinds.includes(r.kind));if(!x)return;
+ const date=finPromptDate('Date réelle de la dépense',td());if(!date)return;
+ await upd(id,{date});
+}
+async function editFinancialMovement(id){
+ const x=R.find(r=>r.id===id&&r.kind==='mouvement_financier');if(!x)return;
+ const date=finPromptDate('Nouvelle date réelle de l’opération',x.date);if(!date)return;
+ await upd(id,{date});
+}
+function finPeriodBounds(){
+ const now=new Date();let start,end;
+ if(FPERIOD==='custom'){
+  const s=FSTART||localFinDate(new Date(now.getFullYear(),now.getMonth()-5,1));
+  const e=FEND||localFinDate(new Date(now.getFullYear(),now.getMonth(),now.getDate()));
+  start=new Date(s+'T00:00:00');end=new Date(e+'T00:00:00');end.setDate(end.getDate()+1);
+ }else{
+  const n=FPERIOD==='12m'?12:6;
+  start=new Date(now.getFullYear(),now.getMonth()-n+1,1);end=new Date(now.getFullYear(),now.getMonth()+1,1);
+ }
+ return{start,end};
+}
+function localFinDate(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function setFinancePeriod(v){
+ FPERIOD=v;FSEL='';FCAT='';
+ if(v==='custom'){
+  const b=finPeriodBounds();FSTART=localFinDate(b.start);const e=new Date(b.end);e.setDate(e.getDate()-1);FEND=localFinDate(e);
+ }
+ draw();
+}
+function applyFinanceRange(){
+ const s=$('#finStart')?.value||'',e=$('#finEnd')?.value||'';
+ if(!isFinDate(s)||!isFinDate(e)||s>e){toast('Choisis une période valide : la date de début doit précéder la date de fin.',1);return}
+ FSTART=s;FEND=e;FSEL='';FCAT='';draw();
+}
+function finRangeRows(rows,start,end){
+ const s=localFinDate(start),e=localFinDate(end);
+ return rows.filter(x=>isFinDate(x.date)&&x.date>=s&&x.date<e);
+}
+function finRangeTotals(model,start,end){
+ const rec=finRangeRows(model.receipts,start,end),exp=finRangeRows(model.expenses,start,end);
+ return{income:sum(rec,x=>x.amount),expense:sum(exp,x=>x.amount),result:sum(rec,x=>x.amount)-sum(exp,x=>x.amount),receipts:rec,expenses:exp};
+}
+function finMonthRows(model,start,end){
+ const rows=[];let cursor=new Date(start.getFullYear(),start.getMonth(),1);
+ while(cursor<end){
+  const next=new Date(cursor.getFullYear(),cursor.getMonth()+1,1),from=cursor<start?start:cursor,to=next>end?end:next;
+  const key=cursor.getFullYear()+'-'+String(cursor.getMonth()+1).padStart(2,'0');
+  const receipts=finRangeRows(model.receipts,from,to),expenses=finRangeRows(model.expenses,from,to);
+  rows.push({key,label:cursor.toLocaleDateString('fr-FR',{month:'short'}),income:sum(receipts,x=>x.amount),expense:sum(expenses,x=>x.amount),result:sum(receipts,x=>x.amount)-sum(expenses,x=>x.amount),categories:FIN_CATEGORIES.map(c=>({name:c.name,color:c.color,value:sum(expenses.filter(x=>x.category===c.name),x=>x.amount)}))});
+  cursor=next;
+ }
+ return rows;
+}
+function finComparisonBounds(bounds){
+ const months=FPERIOD==='12m'?12:6;
+ if(FPERIOD==='6m'||FPERIOD==='12m')return{start:new Date(bounds.start.getFullYear(),bounds.start.getMonth()-months,1),end:bounds.start};
+ const span=bounds.end-bounds.start;return{start:new Date(bounds.start.getTime()-span),end:bounds.start};
+}
+function finBookingStats(model,start,end){
+ const s=localFinDate(start),e=localFinDate(end),rows=model.bookings.filter(x=>isFinDate(x.arrival)&&x.arrival>=s&&x.arrival<e);
+ return{count:rows.length,total:sum(rows,x=>x.total),paid:sum(rows,x=>x.paid),due:sum(rows,x=>x.due),rows};
+}
+function finMoneyShort(n){
+ const a=Math.abs(n);if(a>=1000000)return(Math.round(a/100000)/10)+' M DA';if(a>=1000)return Math.round(a/1000)+' k DA';return Math.round(a).toLocaleString('fr-FR')+' DA';
+}
+function renderFinanceTrend(months,selected){
+ const width=1000,height=360,left=64,right=24,barTop=40,base=238,plotW=width-left-right,max=Math.max(1,...months.map(x=>Math.max(x.income,x.expense,Math.abs(x.result))));
+ const step=plotW/months.length,bw=Math.min(28,step*.24);let svg='';
+ for(let tick=0;tick<=4;tick++){const y=base-(base-barTop)*tick/4,val=max*tick/4;svg+='<line x1="'+left+'" x2="'+(width-right)+'" y1="'+y+'" y2="'+y+'" stroke="#e8edf0" stroke-dasharray="'+(tick?'3 5':'0')+'"/><text x="'+(left-9)+'" y="'+(y+4)+'" text-anchor="end" fill="#748094" font-size="11">'+finMoneyShort(val)+'</text>'}
+ svg+='<line x1="'+left+'" x2="'+(width-right)+'" y1="'+base+'" y2="'+base+'" stroke="#9aa5b3"/>';
+ const points=[];
+ months.forEach((m,i)=>{
+  const x=left+step*(i+.5),rh=(base-barTop)*m.income/max,eh=(base-barTop)*m.expense/max,netY=base-((base-barTop)*.42)*(m.result/max);
+  points.push(x+','+netY);
+  svg+='<g class="fin-month '+(selected===m.key?'selected':'')+'" role="button" tabindex="0" aria-label="'+esc(m.label)+': recettes '+DA(m.income)+', dépenses '+DA(m.expense)+', résultat '+DA(m.result)+'" onclick="selectFinanceMonth(\''+m.key+'\')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){selectFinanceMonth(\''+m.key+'\');event.preventDefault()}"><title>'+esc(m.label)+' · recettes '+DA(m.income)+' · dépenses '+DA(m.expense)+' · résultat '+DA(m.result)+'</title>';
+  svg+='<rect x="'+(x-bw-2)+'" y="'+(base-rh)+'" width="'+bw+'" height="'+Math.max(1,rh)+'" rx="5" fill="#2f7c68"/><rect x="'+(x+2)+'" y="'+(base-eh)+'" width="'+bw+'" height="'+Math.max(1,eh)+'" rx="5" fill="#d98b4d"/><text x="'+x+'" y="258" text-anchor="middle" fill="#68758a" font-size="11">'+esc(m.label)+'</text></g>';
+ });
+ svg+='<polyline points="'+points.join(' ')+'" fill="none" stroke="#376fa5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>';
+ months.forEach((m,i)=>{const x=left+step*(i+.5),y=base-((base-barTop)*.42)*(m.result/max);svg+='<circle cx="'+x+'" cy="'+y+'" r="4.5" fill="'+(m.result<0?'#c2413a':'#376fa5')+'" stroke="#fff" stroke-width="2"><title>'+esc(m.label)+' · résultat '+DA(m.result)+'</title></circle>'});
+ return'<div class="fin-svg-wrap"><svg class="fin-svg" viewBox="0 0 '+width+' '+height+'" role="img" aria-label="Recettes encaissées, dépenses payées et résultat mensuel">'+svg+'</svg></div>';
+}
+function renderFinanceExpenses(months,selectedCategory){
+ const width=1000,height=330,left=64,right=24,top=28,base=235,plotW=width-left-right,step=plotW/months.length,max=Math.max(1,...months.map(m=>sum(m.categories,c=>c.value)));let svg='';
+ for(let tick=0;tick<=4;tick++){const y=base-(base-top)*tick/4,val=max*tick/4;svg+='<line x1="'+left+'" x2="'+(width-right)+'" y1="'+y+'" y2="'+y+'" stroke="#e8edf0" stroke-dasharray="'+(tick?'3 5':'0')+'"/><text x="'+(left-9)+'" y="'+(y+4)+'" text-anchor="end" fill="#748094" font-size="11">'+finMoneyShort(val)+'</text>'}
+ months.forEach((m,i)=>{
+  const x=left+step*(i+.5),barW=Math.min(44,step*.58);let y=base;svg+='<g class="fin-month" role="group" aria-label="'+esc(m.label)+' dépenses">';
+  m.categories.forEach(c=>{const h=(base-top)*c.value/max;if(!h)return;y-=h;svg+='<rect class="fin-segment '+(selectedCategory===c.name?'fin-segment-on':'')+'" x="'+(x-barW/2)+'" y="'+y+'" width="'+barW+'" height="'+h+'" fill="'+c.color+'" role="button" tabindex="0" aria-label="'+esc(c.name)+' '+esc(m.label)+': '+DA(c.value)+'" onclick="selectFinanceCategory(\''+c.name+'\',\''+m.key+'\')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){selectFinanceCategory(\''+c.name+'\',\''+m.key+'\');event.preventDefault()}"><title>'+esc(c.name)+' · '+esc(m.label)+' · '+DA(c.value)+'</title></rect>'});
+  svg+='<text x="'+x+'" y="256" text-anchor="middle" fill="#68758a" font-size="11">'+esc(m.label)+'</text></g>';
+ });
+ const legend='<div class="fin-legend">'+FIN_CATEGORIES.map(c=>'<button class="fin-legend-item '+(selectedCategory===c.name?'on':'')+'" onclick="selectFinanceCategory(\''+c.name+'\')"><i style="background:'+c.color+'"></i>'+esc(c.name)+'</button>').join('')+'</div>';
+ return'<div class="fin-svg-wrap"><svg class="fin-svg" viewBox="0 0 '+width+' '+height+'" role="img" aria-label="Dépenses par mois et par catégorie">'+svg+'</svg></div>'+legend;
+}
+function selectFinanceMonth(key){FSEL=key;FCAT='';draw()}
+function selectFinanceCategory(category,key){FCAT=category;FSEL=key||'';draw()}
+function finDetail(model,months){
+ if(FSEL){
+  const m=months.find(x=>x.key===FSEL);if(!m)return'<p class="subtle">Mois sélectionné hors période.</p>';
+  const expenseRows=m.categories.filter(x=>x.value>0),selectedCategory=FCAT?m.categories.find(x=>x.name===FCAT):null;
+  return'<div class="fin-detail-head"><div><small>DÉTAIL DU MOIS</small><h3>'+esc(m.label)+' '+esc(m.key.slice(0,4))+'</h3></div><button class="s" onclick="FSEL=\'\';FCAT=\'\';draw()">Effacer</button></div>'+
+   '<div class="inventory-summary"><div class="k"><small>Recettes encaissées</small><b>'+DA(m.income)+'</b></div><div class="k"><small>Dépenses payées</small><b>'+DA(m.expense)+'</b></div><div class="k"><small>Solde opérationnel</small><b class="'+(m.result<0?'bad':'good')+'">'+DA(m.result)+'</b></div></div>'+
+   (selectedCategory?'<p class="fin-focus" style="margin-top:12px"><b>'+esc(selectedCategory.name)+'</b> · '+DA(selectedCategory.value)+'</p>':'')+
+   '<div class="fin-detail-list">'+(expenseRows.map(x=>'<div><span><i style="background:'+x.color+'"></i>'+esc(x.name)+'</span><b>'+DA(x.value)+'</b></div>').join('')||'<p class="subtle">Aucune dépense datée dans ce mois.</p>')+'</div>';
+ }
+ if(FCAT){
+  const values=months.map(m=>({label:m.label,key:m.key,value:(m.categories.find(x=>x.name===FCAT)||{}).value||0}));
+  return'<div class="fin-detail-head"><div><small>DÉTAIL PAR CATÉGORIE</small><h3>'+esc(FCAT)+'</h3></div><button class="s" onclick="FCAT=\'\';draw()">Effacer</button></div><div class="fin-detail-list">'+values.map(x=>'<div><span>'+esc(x.label)+' '+esc(x.key.slice(0,4))+'</span><b>'+DA(x.value)+'</b></div>').join('')+'</div><p class="fin-focus">Total période · '+DA(sum(values,x=>x.value))+'</p>';
+ }
+ return'<p class="subtle">Sélectionne un mois ou une catégorie pour afficher les valeurs détaillées.</p>';
+}
+function finDelta(current,previous){
+ if(previous===0)return current===0?'Aucun écart':'+ '+DA(current)+' vs 0 DA';
+ const p=(current-previous)/Math.abs(previous)*100,sign=p>0?'+':'';
+ return sign+p.toFixed(1).replace('.',',')+' % vs période précédente';
+}
+function renderFinancialDashboard(){
+ const model=FIN_OFFLINE&&OFFLINE_FINANCE?OFFLINE_FINANCE:financialModelFromRows(R);
+ const bounds=finPeriodBounds(),prevBounds=finComparisonBounds(bounds),totals=finRangeTotals(model,bounds.start,bounds.end),previous=finRangeTotals(model,prevBounds.start,prevBounds.end);
+ const months=finMonthRows(model,bounds.start,bounds.end),bookings=finBookingStats(model,bounds.start,bounds.end),ratio=totals.income>0?totals.expense/totals.income*100:null,prevRatio=previous.income>0?previous.expense/previous.income*100:null;
+ const endCopy=new Date(bounds.end);endCopy.setDate(endCopy.getDate()-1);
+ const periodText=new Date(bounds.start.getFullYear(),bounds.start.getMonth(),1).toLocaleDateString('fr-FR',{month:'long',year:'numeric'})+' — '+new Date(endCopy.getFullYear(),endCopy.getMonth(),1).toLocaleDateString('fr-FR',{month:'long',year:'numeric'});
+ const alertNegative=totals.result<0?'<div class="fin-alert danger"><b>Résultat négatif</b><span>Les dépenses payées dépassent les recettes encaissées de '+DA(Math.abs(totals.result))+' sur cette période.</span></div>':'';
+ const spendingRise=previous.expense===0?totals.expense>0:totals.expense>=previous.expense*1.2;
+ const alertRise=spendingRise?'<div class="fin-alert warning"><b>Hausse marquée des dépenses</b><span>'+DA(totals.expense)+' contre '+DA(previous.expense)+' sur la période précédente ('+finDelta(totals.expense,previous.expense)+'). Le seuil d’alerte est fixé à +20 %.</span></div>':'';
+ const custom=FPERIOD==='custom',startLabel=localFinDate(bounds.start),endLabel=localFinDate(endCopy);
+ const rangeControls='<div class="fin-period"><div><small>PÉRIODE D’ANALYSE</small><h2>'+esc(periodText)+'</h2></div><div class="fin-period-controls"><label>Afficher<select onchange="setFinancePeriod(this.value)"><option value="6m" '+(FPERIOD==='6m'?'selected':'')+'>6 derniers mois</option><option value="12m" '+(FPERIOD==='12m'?'selected':'')+'>12 derniers mois</option><option value="custom" '+(custom?'selected':'')+'>Période personnalisée</option></select></label>'+(custom?'<label>Du<input id="finStart" type="date" value="'+esc(FSTART||startLabel)+'"></label><label>Au<input id="finEnd" type="date" value="'+esc(FEND||endLabel)+'"></label><button class="s" onclick="applyFinanceRange()">Appliquer</button>':'')+'</div></div>';
+ const cacheStamp=FIN_OFFLINE&&OFFLINE_FINANCE?'<div class="fin-alert warning"><b>Mode hors ligne · consultation</b><span>Synthèse financière de la dernière synchronisation réussie le '+new Date(OFFLINE_FINANCE.savedAt).toLocaleString('fr-FR')+'. Les montants sont agrégés localement. Les nouvelles opérations nécessitent Internet.</span></div>':'';
+ const previousEnd=new Date(prevBounds.end);previousEnd.setDate(previousEnd.getDate()-1);
+ const comparison='<div class="fin-compare">Comparaison : période de même durée immédiatement précédente · '+localFinDate(prevBounds.start)+' au '+localFinDate(previousEnd)+'</div>';
+ const tiles='<div class="fin-kpis"><div class="fin-kpi income"><small>Recettes encaissées</small><b>'+DA(totals.income)+'</b><span>'+finDelta(totals.income,previous.income)+'</span></div><div class="fin-kpi expense"><small>Dépenses payées</small><b>'+DA(totals.expense)+'</b><span>'+finDelta(totals.expense,previous.expense)+'</span></div><div class="fin-kpi result"><small>Solde opérationnel</small><b>'+DA(totals.result)+'</b><span>'+finDelta(totals.result,previous.result)+'</span></div><div class="fin-kpi ratio"><small>Dépenses / recettes</small><b>'+(ratio===null?'—':ratio.toFixed(1).replace('.',',')+' %')+'</b><span>'+(prevRatio===null?'Pas de recettes pour comparer':'Période précédente : '+prevRatio.toFixed(1).replace('.',',')+' %')+'</span></div><div class="fin-kpi plan"><small>Solde contractuel restant*</small><b>'+DA(bookings.due)+'</b><span>'+bookings.count+' réservation(s) dont l’arrivée est dans la période</span></div></div>';
+ const bookingInfo='<div class="fin-booking-note"><b>Prévision distincte des encaissements</b><span>Réservations enregistrées sur la période d’arrivée : montant prévu '+DA(bookings.total)+' · acompte cumulé '+DA(bookings.paid)+' · solde contractuel '+DA(bookings.due)+'. Les acomptes historiques sans date ne sont pas affectés aux mois du graphique.</span></div>';
+ const chart1='<div class="card fin-card"><div class="fin-card-head"><div><p class="fin-eyebrow">TRÉSORERIE OPÉRATIONNELLE</p><h2>Recettes, dépenses et résultat</h2><p class="subtle">Montants réellement datés dans l’application · '+esc(periodText)+'</p></div></div><div class="fin-chart-legend"><span><i style="background:#2f7c68"></i>Recettes encaissées</span><span><i style="background:#d98b4d"></i>Dépenses payées</span><span><i style="background:#376fa5"></i>Résultat du mois</span></div>'+renderFinanceTrend(months,FSEL)+'</div>';
+ const chart2='<div class="card fin-card"><div class="fin-card-head"><div><p class="fin-eyebrow">ANALYSE DES CHARGES</p><h2>Dépenses par catégorie</h2><p class="subtle">Barres empilées · sélectionne un segment ou une catégorie pour comparer les mois.</p></div></div>'+renderFinanceExpenses(months,FCAT)+'</div>';
+ const detail='<div class="card fin-card"><h2>Valeurs détaillées</h2>'+finDetail(model,months)+'</div>';
+ const undated=(model.undatedReceiptAmount||model.undatedWorkAmount||model.undatedExpenseAmount)?"<div class=\"fin-alert warning\"><b>Montants sans date de paiement</b><span>"+DA(model.undatedReceiptAmount||0)+" d’acomptes historiques, "+DA(model.undatedWorkAmount||0)+" de travaux payés et "+DA(model.undatedExpenseAmount||0)+" d’autres dépenses sont enregistrés sans date exploitable. Ils sont exclus des totaux mensuels jusqu’au rapprochement.</span></div>":"";
+ let reconciliation='';
+ if(!FIN_OFFLINE){
+  const oldReceipts=model.bookings.filter(x=>x.legacyUndated>0).map(x=>'<div class="fin-row"><div><b>'+esc(x.client)+'</b><small>Arrivée '+esc(x.arrival||'—')+' · acompte sans date '+DA(x.legacyUndated)+'</small></div><button class="s" onclick="recordReservationPayment(\''+x.id+'\',true)">Dater une partie</button></div>').join('');
+  const oldWorks=R.filter(x=>x.kind==='travaux'&&Math.max(0,finNum(x.paye)-sum(R.filter(t=>t.kind==='mouvement_financier'&&t.type==='travaux_paye'&&t.travaux_id===x.id),t=>t.montant))>0).map(x=>'<div class="fin-row"><div><b>'+esc(x.titre||x.desc||'Travaux')+'</b><small>Paiement sans date '+DA(Math.max(0,finNum(x.paye)-sum(R.filter(t=>t.kind==='mouvement_financier'&&t.type==='travaux_paye'&&t.travaux_id===x.id),t=>t.montant)))+'</small></div><button class="s" onclick="dateLegacyWorkPayment(\''+x.id+'\')">Dater une partie</button></div>').join('');
+  const oldExpenses=R.filter(x=>['depense','achat','stock_achat','citerne','menage','avance','salaire_paye'].includes(x.kind)&&!isFinDate(x.date)&&finNum(x.kind==='citerne'?x.prix:x.montant)>0).map(x=>{const amount=finNum(x.kind==='citerne'?x.prix:x.montant),label=({depense:'Dépense',achat:'Achat',stock_achat:'Achat de stock',citerne:'Citerne',menage:'Ménage',avance:'Acompte sur salaire',salaire_paye:'Salaire payé'}[x.kind]||'Dépense');return '<div class="fin-row"><div><b>'+esc(label)+'</b><small>'+DA(amount)+' · date manquante</small></div><button class="s" onclick="dateLegacyExpense(\''+x.id+'\')">Ajouter la date</button></div>'}).join('');
+  reconciliation='<div class="card fin-card"><h2>Rapprocher l’historique</h2><p class="subtle">Saisis seulement une date vérifiable sur un reçu ou un justificatif. Les opérations sans date restent hors des totaux mensuels jusqu’à correction.</p>'+((oldReceipts+oldWorks+oldExpenses)||'<p class="good">Aucun montant historique à dater.</p>')+'</div>';
+ }
+ const cautionRows=model.bookings.filter(x=>x.cautionExpected>0||x.cautionReceived>0||x.cautionRefunded>0).map(x=>'<div class="fin-row"><div><b>'+esc(x.client||'Réservation')+'</b><small>Prévue '+DA(x.cautionExpected)+' · reçue '+DA(x.cautionReceived)+' · remboursée '+DA(x.cautionRefunded)+' · détenue '+DA(x.cautionBalance)+'</small></div>'+(FIN_OFFLINE?'':'<div class="print-actions"><button class="s" onclick="recordCaution(\''+x.id+'\',\'caution_recue\')">Caution reçue</button><button class="s" onclick="recordCaution(\''+x.id+'\',\'caution_remboursee\')">Rembourser</button></div>')+'</div>').join('');
+ const cautionPanel='<div class="card fin-card"><h2>Cautions remboursables · hors résultat opérationnel</h2><p class="subtle">Le montant prévu dans une réservation n’est pas une recette. Les cautions reçues et remboursées restent hors des recettes et dépenses d’exploitation.</p>'+(cautionRows||'<p class="subtle">Aucune caution enregistrée.</p>')+'</div>';
+ const movementRows=R.filter(x=>x.kind==='mouvement_financier').slice().sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+ const movementTable=FIN_OFFLINE?'':'<div class="card fin-card"><h2>Journal des encaissements et cautions</h2><p class="subtle">Les encaissements et cautions sont datés et identifiés séparément. Une suppression met à jour le tableau de bord.</p>'+T(movementRows,[['Date',x=>esc(x.date||'—')],['Opération',x=>esc(({encaissement:'Encaissement réservation',caution_recue:'Caution reçue · exclue',caution_remboursee:'Remboursement caution · exclu',travaux_paye:'Paiement de travaux'}[x.type]||x.type))],['Montant',x=>DA(x.montant)],['Note',x=>esc(x.note||'—')]],x=>'<button class="s" onclick="editFinancialMovement(\''+x.id+'\')">Modifier la date</button>')+'</div>';
+ const basis='<div class="fin-method"><b>Règle du solde opérationnel</b><span>Recettes = encaissements de réservation enregistrés avec une date. Dépenses = opérations datées réellement payées : dépenses, achats, stock acheté, citernes, ménage payé, avances et salaires payés, et paiements de travaux datés. Les acomptes historiques sans date et les paiements de travaux cumulés sans date restent à rapprocher. Les cautions reçues/remboursées, réservations prévues, heures de salaire non payées, retraits de caisse et valeur du stock consommé sont exclus. Ce solde est le calcul opérationnel de l’application, pas nécessairement un bénéfice comptable net.</span></div>';
+ return'<section class="fin-dashboard">'+rangeControls+cacheStamp+comparison+tiles+alertNegative+alertRise+bookingInfo+undated+chart1+chart2+detail+reconciliation+cautionPanel+movementTable+basis+'</section>';
+}
 function fin(m=''){
  const rs=K('resa').filter(r=>inM(r.arrivee,m)),f=k=>K(k).filter(x=>inM(x.date,m)),
- rev=sum(rs,tot),enc=sum(rs,r=>r.acompte),dep=sum(f('depense'),x=>x.montant)+sum(K('achat').filter(x=>inM(x.date,m)),x=>x.montant)+sum(K('stock_achat').filter(x=>inM(x.date,m)),x=>x.montant),cit=sum(f('citerne'),x=>x.prix),
+ rev=sum(rs,tot),enc=sum(rs,r=>paidAmount(r)),dep=sum(f('depense'),x=>x.montant)+sum(K('achat').filter(x=>inM(x.date,m)),x=>x.montant)+sum(K('stock_achat').filter(x=>inM(x.date,m)),x=>x.montant),cit=sum(f('citerne'),x=>x.prix),
  sal=sum(f('heures'),x=>x.montant),mn=sum(f('menage'),x=>x.montant),tv=sum(f('travaux'),x=>x.paye??x.montant),gen=sum(f('depense').filter(x=>GENERATOR_CATS.includes(x.cat)),x=>x.montant),
  ger=rev/3,mai=rev-ger,ch=dep+cit+mn+tv;return{rev,enc,ger,mai,dep,cit,sal,mn,tv,gen,ch,net:mai-ch,gerNet:ger-sal}}
 function occ(y,mo){const n=new Date(y,mo+1,0).getDate();let c=0;for(let d=1;d<=n;d++)if(busy(ds(y,mo,d)))c++;return Math.round(c/n*100)}
@@ -285,10 +627,10 @@ stockMeta=id=>{const x=R.find(r=>r.id===id);if(!x)return;const unite=prompt('Uni
 setq=id=>{const v=prompt('Nouvelle quantité ?');if(v!==null&&v.trim()!==''&&+v>=0)upd(id,{qte:+v})},
 setcible=id=>{const v=prompt('Combien en faut-il dans la maison ? (objectif)');if(v!==null&&v.trim()!==''&&+v>=0)upd(id,{cible:+v})},
 cycT=id=>{const x=R.find(r=>r.id===id);upd(id,{statut:TS[(TS.indexOf(x.statut)+1)%3]})},
-payT=id=>{const v=+prompt('Montant payé maintenant (DA) ?');if(v>0)upd(id,{paye:(+(R.find(x=>x.id===id).paye)||0)+v})};
+payT=async id=>{if(FIN_OFFLINE)return toast('Une connexion est nécessaire pour enregistrer le paiement.',1);const x=R.find(r=>r.id===id&&r.kind==='travaux');if(!x)return;const linked=sum(R.filter(r=>r.kind==='mouvement_financier'&&r.type==='travaux_paye'&&r.travaux_id===id),r=>r.montant),paid=Math.max(finNum(x.paye),linked),due=Math.max(0,finNum(x.devis||x.montant)-paid);const v=+prompt('Montant réellement payé maintenant (DA) ?',String(due||''));if(!(v>0)||v>due)return toast('Montant invalide ou supérieur au solde du devis.',1);const date=finPromptDate('Date réelle du paiement',td());if(!date)return;const oldPaid=finNum(x.paye);if(!await upd(id,{paye:oldPaid+v}))return;const ok=await add('mouvement_financier',{type:'travaux_paye',date,montant:v,travaux_id:id,note:'Paiement de travaux'});if(!ok)await upd(id,{paye:oldPaid})};
 function backupJSON(){const payload={application:'Villa Les Deux Palmiers — Gestion Premium',exported_at:new Date().toISOString(),records:R.map(({id,kind,at,...data})=>({id,kind,at,data}))};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='villa-deux-palmiers-sauvegarde-'+td()+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1500);toast('Sauvegarde JSON téléchargée ✓')}
 async function restoreJSON(ev){const file=ev.target.files?.[0];ev.target.value='';if(!file)return;try{const payload=JSON.parse(await file.text());if(!Array.isArray(payload.records))throw new Error('Ce fichier ne contient pas une sauvegarde compatible.');if(!confirm('Importer '+payload.records.length+' enregistrements ? Les données existantes seront conservées. Les doublons identiques seront ignorés. Fais une sauvegarde avant de continuer.'))return;const{data:existing,error}=await sb.from('records').select('kind,data');if(error)throw error;const seen=new Set((existing||[]).map(x=>x.kind+'|'+JSON.stringify(x.data)));const rows=[];for(const x of payload.records){if(!x||typeof x.kind!=='string'||!x.data||typeof x.data!=='object')continue;const key=x.kind+'|'+JSON.stringify(x.data);if(!seen.has(key)){seen.add(key);rows.push({kind:x.kind,data:x.data})}}if(!rows.length)return toast('Aucune nouvelle donnée à importer.');const{error:ie}=await sb.from('records').insert(rows);if(ie)throw ie;toast(rows.length+' enregistrements restaurés ✓');await load()}catch(e){toast('Import impossible : '+(e.message||'fichier invalide'),1)}}
-function csv(){const rows=[['Client','Tel','Source','Personnes','Arrivée','Départ','Nuits','Total','Acompte','Reste']].concat(K('resa').map(r=>[r.client,r.tel,r.source,r.nb,r.arrivee,r.depart,nights(r),tot(r),r.acompte,tot(r)-r.acompte]));
+function csv(){const rows=[['Client','Tel','Source','Personnes','Arrivée','Départ','Nuits','Total','Acompte','Reste']].concat(K('resa').map(r=>[r.client,r.tel,r.source,r.nb,r.arrivee,r.depart,nights(r),tot(r),paidAmount(r),tot(r)-paidAmount(r)]));
  const b=new Blob(['\ufeff'+rows.map(r=>r.map(c=>'"'+String(c??'').replace(/"/g,'""')+'"').join(';')).join('\n')],{type:'text/csv'}),a=document.createElement('a');
  a.href=URL.createObjectURL(b);a.download='reservations.csv';a.click()}
 function bon(id){const r=R.find(x=>x.id===id);
@@ -296,7 +638,7 @@ function bon(id){const r=R.find(x=>x.id===id);
  <p>Client : <b>${esc(r.client)}</b> — Tél : ${esc(r.tel)}</p><p>Nombre de personnes : <b>${esc(r.nb)}</b></p>
  <p>Arrivée : <b>${esc(r.arrivee)}</b> à ${esc(r.h_in)}</p><p>Départ : <b>${esc(r.depart)}</b> à ${esc(r.h_out)}</p>
  <p>${nights(r)} nuit(s) × ${DA(r.prix)}</p><h2 style="margin-top:12px">Total : ${DA(tot(r))}</h2>
- <p>Acompte versé : ${DA(r.acompte)}</p><h2>Reste à payer : ${DA(tot(r)-r.acompte)}</h2>
+ <p>Acompte versé : ${DA(paidAmount(r))}</p><h2>Reste à payer : ${DA(tot(r)-paidAmount(r))}</h2>
  <p style="margin-top:18px;padding:12px;border-radius:10px;background:#edf4f1">Contact : <b>${esc(TEL_URGENCE)}</b> &nbsp; · &nbsp; Autre numéro : __________________</p><p style="margin-top:42px">Signature client : __________________ &nbsp; Signature gérant : __________________</p>`;
  window.print()}
 function bonRecord(id){const r=R.find(x=>x.id===id);if(!r)return;const labels={stock_achat:'Bon d’achat de stock',stock_sortie:'Bon de sortie de stock',menage:'Bon de ménage effectué',citerne:'Bon d’achat de citerne',depense:'Bon de dépense / achat',achat:'Bon d’achat',retrait:'Bon de retrait / sortie de caisse',pompe:'Bon de mouvement d’eau / pompe',eau_ref:'Fiche de mesure du puits',piscine:'Fiche de traitement piscine',travaux:'Bon de travaux',avance:'Bon d’acompte sur salaire',salaire_paye:'Bon de paiement de salaire',heures:'Relevé de travail'};const skip=new Set(['id','kind','at','article_id']);let rows=Object.entries(r).filter(([k,v])=>!skip.has(k)&&v!==''&&v!==null&&v!==undefined).map(([k,v])=>`<tr><th>${esc(({date:'Date',nom:'Employé',jours:'Journées travaillées',tarif_jour:'Tarif par journée',montant:'Montant',cout:'Coût estimé',cout_unitaire:'Coût unitaire',article_id:'Référence produit',unite:'Unité',note:'Note',desc:'Description',fournisseur:'Fournisseur',article:'Article',qte:'Quantité',vol:'Volume',prix:'Prix',niv:'Hauteur d’eau estimée',diam:'Diamètre du puits',debit:'Débit estimé',litres:'Litres',sens:'Opération',min:'Durée (minutes)',produit:'Produit',dose:'Dose',client:'Client',raison:'Motif',titre:'Travaux',artisan:'Artisan',beneficiaire:'Bénéficiaire',motif:'Motif du retrait',mode:'Mode de retrait'}[k]||k))}</th><td>${esc(typeof v==='number'&&['montant','prix','tarif_jour','cout','cout_unitaire'].includes(k)?DA(v):v)}</td></tr>`).join('');$('#print').innerHTML=`<h1>Villa Les Deux Palmiers</h1><h2>${labels[r.kind]||'Bon de gestion'}</h2><p>Référence : ${esc(String(r.id).slice(0,8))} · Imprimé le ${esc(td())}</p><table>${rows}</table><p style="margin-top:48px">Signature du responsable : ____________________</p>`;window.print()}
@@ -337,9 +679,10 @@ heures(){const h=K('heures'),names=[...new Set([...K('employe').map(x=>x.nom),..
  <div class="card"><div class="panel-title"><h2>Fiches de paie</h2><label>Mois de paie<input type="month" value="${month}" onchange="payrollMonth=this.value;draw()"></label></div>${payrows||'<p class="subtle">Ajoute un tarif ou une journée de travail pour commencer.</p>'}</div>
  <div class="card"><h2>Journées enregistrées</h2>${T(h.slice().sort((a,b)=>String(b.date).localeCompare(String(a.date))),[['Date',x=>esc(x.date)],['Employé',x=>`<b>${esc(x.nom)}</b>`],['Journées',x=>esc(x.jours??((+x.h||0)/8))],['Tarif / jour',x=>DA(x.tarif_jour||0)],['Montant calculé',x=>DA(x.montant)]],x=>`<button class="s" onclick="bonRecord('${x.id}')">Imprimer</button> `)}</div>`},
 
-finance(){if(!own())return'<div class="card">Comptabilité réservée au propriétaire.</div>';const f=fin(M);
- return`<div class="card"><h2>Comptabilité et sauvegardes</h2><div class="print-actions" style="margin-bottom:12px"><button onclick="backupJSON()">⬇ Sauvegarder toutes les données (JSON)</button><button class="s" onclick="document.getElementById('restoreFile').click()">Restaurer une sauvegarde JSON</button><button class="s" onclick="csv()">Exporter les réservations (CSV)</button></div><input id="restoreFile" type="file" accept="application/json,.json" hidden onchange="restoreJSON(event)"><p class="subtle" style="margin-bottom:12px">Télécharge régulièrement une sauvegarde et garde-la dans Fichiers iCloud ou sur un ordinateur. L’import conserve les données actuelles et ajoute les enregistrements manquants.</p><label>Mois (vide = tout)<input type="month" value="${esc(M)}" onchange="M=this.value;draw()"></label>
- <div class="g" style="margin-top:12px"><div class="k"><small>Recettes</small><b>${DA(f.rev)}</b></div><div class="k"><small>Déjà encaissé</small><b>${DA(f.enc)}</b></div><div class="k"><small>Reste à encaisser</small><b>${DA(f.rev-f.enc)}</b></div></div>
+finance(){if(!own())return'<div class="card">Comptabilité réservée au propriétaire.</div>';const f=fin(M),dashboard=renderFinancialDashboard();
+ if(FIN_OFFLINE)return dashboard+'<div class="fin-method"><b>Synthèse en lecture seule</b><span>Les écrans de gestion et les nouvelles opérations demandent une connexion.</span></div>';
+ return dashboard+`<div class="card"><h2>Comptabilité historique et sauvegardes</h2><p class="subtle" style="margin:-6px 0 12px">Les indicateurs ci-dessous suivent les règles historiques de l’application. Le tableau de bord financier au-dessus utilise les encaissements et paiements datés.</p><div class="print-actions" style="margin-bottom:12px"><button onclick="backupJSON()">⬇ Sauvegarder toutes les données (JSON)</button><button class="s" onclick="document.getElementById('restoreFile').click()">Restaurer une sauvegarde JSON</button><button class="s" onclick="csv()">Exporter les réservations (CSV)</button></div><input id="restoreFile" type="file" accept="application/json,.json" hidden onchange="restoreJSON(event)"><p class="subtle" style="margin-bottom:12px">Télécharge régulièrement une sauvegarde et garde-la dans Fichiers iCloud ou sur un ordinateur. L’import conserve les données actuelles et ajoute les enregistrements manquants.</p><label>Mois (vide = tout)<input type="month" value="${esc(M)}" onchange="M=this.value;draw()"></label>
+ <div class="g" style="margin-top:12px"><div class="k"><small>Montant réservé · date d’arrivée</small><b>${DA(f.rev)}</b></div><div class="k"><small>Acomptes cumulés · date non ventilée</small><b>${DA(f.enc)}</b></div><div class="k"><small>Solde contractuel prévu</small><b>${DA(f.rev-f.enc)}</b></div></div>
  <div class="g" style="margin-top:10px"><div class="k"><small>Part maison · 2/3</small><b>${DA(f.mai)}</b></div><div class="k"><small>Frais de la maison</small><b>${DA(f.ch)}</b></div><div class="k"><small>Reste maison</small><b>${DA(f.net)}</b></div></div></div>
   <div class="card"><h2>Frais payés par la maison</h2><div class="td">Ménage : <b>${DA(f.mn)}</b></div><div class="td">Travaux : <b>${DA(f.tv)}</b></div><div class="td">Citernes : <b>${DA(f.cit)}</b></div><div class="td">Groupe électrogène 35 kVA : <b>${DA(f.gen)}</b></div><div class="td">Autres dépenses : <b>${DA(Math.max(0,f.dep-f.gen))}</b></div></div>
   <div class="card private-finance"><div class="panel-title"><div><h2>Part personnelle du propriétaire</h2><p class="subtle">Ta part et le salaire sont masqués derrière ton code personnel.</p></div><span class="private-lock">🔒 Privé</span></div>${vaultUnlocked ? `<div class="inventory-summary"><div class="k"><small>Ta part brute · 1/3</small><b>${DA(f.ger)}</b></div><div class="k"><small>Salaire employé retiré de ta part</small><b>− ${DA(f.sal)}</b></div><div class="k"><small>Ton solde après salaire</small><b>${DA(f.gerNet)}</b></div></div>` : `<p class="subtle">Déverrouille avec ton code pour voir ta part, le salaire déduit et ton solde personnel.</p><button onclick="openVault()">🔐 Déverrouiller avec mon code</button>`}</div>
@@ -353,7 +696,7 @@ home(){const w=water(),t=td(),mm=t.slice(0,7),low=lowS(),now=new Date(),f=fin(mm
  days=nxt?Math.round((new Date(nxt.arrivee)-new Date(t))/864e5):0,
  mo=[5,4,3,2,1,0].map(i=>{const d=new Date(now.getFullYear(),now.getMonth()-i,1),x=fin(mk(d.getFullYear(),d.getMonth()));return{l:d.toLocaleDateString('fr-FR',{month:'short'}),rev:x.rev}}),mx=Math.max(1,...mo.map(x=>x.rev)),
  todo=[...dp.map(r=>`🧹 Ménage après le départ de <b>${esc(r.client)}</b> (${esc(r.depart)})`),
- ...nx.filter(r=>r.arrivee<=plus(3)&&tot(r)>r.acompte).map(r=>`💰 <b>${esc(r.client)}</b> arrive le ${esc(r.arrivee)} : reste ${DA(tot(r)-r.acompte)}`),
+ ...nx.filter(r=>r.arrivee<=plus(3)&&tot(r)>paidAmount(r)).map(r=>`💰 <b>${esc(r.client)}</b> arrive le ${esc(r.arrivee)} : reste ${DA(tot(r)-paidAmount(r))}`),
  ...(low.length?[`📦 <b>${low.length}</b> article(s) à racheter (voir la liste de courses)`]:[]),
  ...(w&&w.left/w.max<.2?['🚰 Niveau d’eau bas : prévois de remplir']:[])];
  return`<div class="hero"><small>${now.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})}</small><h2 style="color:#fff;margin:4px 0 10px">${own()?(cur?'Villa occupée':'Villa libre'):'Bonjour 👋'}</h2>
@@ -375,7 +718,7 @@ cale(){const y=cal.getFullYear(),mo=cal.getMonth(),n=new Date(y,mo+1,0).getDate(
  mine=rs.filter(r=>r.arrivee.slice(0,7)<=mm&&r.depart.slice(0,7)>=mm).sort((a,b)=>a.arrivee<b.arrivee?-1:1),
  fes=[];for(let d=1;d<=n;d++){const s=ds(y,mo,d);if(fer(s))fes.push(`${d} : ${esc(fer(s))}`)};
  let c=['L','M','M','J','V','S','D'].map(d=>`<i>${d}</i>`).join('');for(let i=0;i<off;i++)c+='<i></i>';for(let d=1;d<=n;d++)c+=cell(ds(y,mo,d));
- const dayCard=r=>`<div class="td"><span class="dot" style="background:${col(r)}"></span><b>${esc(r.client)}</b> ${r.arrivee===selA?'<span class="good">Arrivée</span>':r.depart===selA?'<span class="bad">Départ</span>':'<span class="mu">En séjour</span>'}<br>${esc(r.tel)} · ${esc(r.nb)} pers. · ${esc(r.arrivee)} → ${esc(r.depart)}<br>${DA(tot(r))}${tot(r)>r.acompte?` · reste <b class="bad">${DA(tot(r)-r.acompte)}</b>`:' · <b class="good">payé</b>'}<div style="margin-top:6px">${tot(r)>r.acompte?`<button class="v" onclick="upd('${r.id}',{acompte:${tot(r)}})">Solde payé</button> `:''}<button class="s" onclick="bon('${r.id}')">Bon</button> <button class="d" onclick="del('${r.id}')">Suppr.</button></div></div>`,
+ const dayCard=r=>`<div class="td"><span class="dot" style="background:${col(r)}"></span><b>${esc(r.client)}</b> ${r.arrivee===selA?'<span class="good">Arrivée</span>':r.depart===selA?'<span class="bad">Départ</span>':'<span class="mu">En séjour</span>'}<br>${esc(r.tel)} · ${esc(r.nb)} pers. · ${esc(r.arrivee)} → ${esc(r.depart)}<br>${DA(tot(r))}${tot(r)>paidAmount(r)?` · reste <b class="bad">${DA(tot(r)-paidAmount(r))}</b>`:' · <b class="good">payé</b>'}<div style="margin-top:6px">${tot(r)>paidAmount(r)?`<button class="v" onclick="recordReservationPayment('${r.id}')">Enregistrer un paiement</button> `:''}<button class="s" onclick="bon('${r.id}')">Bon</button> <button class="d" onclick="del('${r.id}')">Suppr.</button></div></div>`,
  btn=`<div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><button onclick="go('sejours','nouvelle')">➕ Réserver</button><button class="s" onclick="bloquer()">⛔ Bloquer</button>`;
  let info;
  if(selA&&selB){const nn=Math.round((new Date(selB)-new Date(selA))/864e5),tp=rangeP(selA,selB),cf=rs.filter(r=>selA<r.depart&&selB>r.arrivee);
@@ -389,10 +732,10 @@ cale(){const y=cal.getFullYear(),mo=cal.getMonth(),n=new Date(y,mo+1,0).getDate(
  <div class="card">${info}</div>
  <div class="card"><h2>Ce mois-ci</h2>${mine.map(r=>`<div class="td"><span class="dot" style="background:${col(r)}"></span><b>${esc(r.client)}</b> · ${esc(r.arrivee.slice(5))} → ${esc(r.depart.slice(5))} · ${esc(r.nb)} pers.</div>`).join('')||'<p class="mu">Aucune réservation.</p>'}${fes.length?`<div class="td">🎉 ${fes.join(' · ')}</div>`:''}</div>`},
 
-nouvelle(){const a=selA||td(),dd=selB&&selB>a?selB:ad(a,1);return`<div class="card"><h2>Nouvelle réservation</h2>${F('resa',[['client','Nom du client'],['tel','Téléphone','tel','',1],['nb','Nombre de personnes','number',2],['source','Source',['Téléphone','Airbnb','Booking','Famille / amis','Autre']],['arrivee','Arrivée','date',a],['h_in','Heure d’entrée','time','14:00'],['depart','Départ','date',dd],['h_out','Heure de sortie','time','12:00'],['prix','Prix par nuit (vide = tarif auto)','number','',1],['remise','Remise (DA)','number',0,1],['acompte','Acompte payé (DA)','number',0],['caution','Caution (DA)','number',0,1]],'Enregistrer')}<p class="mu" style="margin-top:10px;font-size:.8rem">Si tu laisses le prix vide, il est calculé avec tes tarifs : saison, weekend, personnes en plus.</p></div>`},
+nouvelle(){const a=selA||td(),dd=selB&&selB>a?selB:ad(a,1);return`<div class="card"><h2>Nouvelle réservation</h2>${F('resa',[['client','Nom du client'],['tel','Téléphone','tel','',1],['nb','Nombre de personnes','number',2],['source','Source',['Téléphone','Airbnb','Booking','Famille / amis','Autre']],['arrivee','Arrivée','date',a],['h_in','Heure d’entrée','time','14:00'],['depart','Départ','date',dd],['h_out','Heure de sortie','time','12:00'],['prix','Prix par nuit (vide = tarif auto)','number','',1],['remise','Remise (DA)','number',0,1],['acompte','Acompte payé (DA)','number',0],['caution','Caution (DA)','number',0,1]],'Enregistrer')}<p class="mu" style="margin-top:10px;font-size:.8rem">Un acompte déclaré ici est enregistré comme reçu à la date du jour. Si tu laisses le prix vide, il est calculé avec tes tarifs : saison, weekend, personnes en plus.</p></div>`},
 
 liste(){const t=td(),st=r=>r.depart<=t?'<span class="mu">Terminé</span>':r.arrivee<=t?'<span class="good">En séjour</span>':'<span style="color:var(--a1);font-weight:700">À venir</span>';
- return`<div class="card"><h2>Réservations</h2>${T(K('resa'),[['Client',r=>`<span class="dot" style="background:${col(r)}"></span><b>${esc(r.client)}</b><br>${esc(r.tel)}`],['Statut',st],['Source',r=>esc(r.source)],['Pers.',r=>esc(r.nb)],['Séjour',r=>`${esc(r.arrivee)} → ${esc(r.depart)}<br>${nights(r)} nuit(s)`],['Total',r=>DA(tot(r))],['Reste',r=>tot(r)-r.acompte>0?`<span class="bad">${DA(tot(r)-r.acompte)}</span>`:'<span class="good">Payé</span>']],r=>`${tot(r)-r.acompte>0?`<button class="v" onclick="upd('${r.id}',{acompte:${tot(r)}})">Solde payé</button> `:''}<button class="s" onclick="bon('${r.id}')">Bon</button> `)}</div>`},
+ return`<div class="card"><h2>Réservations</h2>${T(K('resa'),[['Client',r=>`<span class="dot" style="background:${col(r)}"></span><b>${esc(r.client)}</b><br>${esc(r.tel)}`],['Statut',st],['Source',r=>esc(r.source)],['Pers.',r=>esc(r.nb)],['Séjour',r=>`${esc(r.arrivee)} → ${esc(r.depart)}<br>${nights(r)} nuit(s)`],['Total',r=>DA(tot(r))],['Reste',r=>tot(r)-paidAmount(r)>0?`<span class="bad">${DA(tot(r)-paidAmount(r))}</span>`:'<span class="good">Payé</span>']],r=>`${tot(r)-paidAmount(r)>0?`<button class="v" onclick="recordReservationPayment('${r.id}')">Enregistrer un paiement</button> `:''}<button class="s" onclick="bon('${r.id}')">Bon</button> `)}</div>`},
 
 tarifs(){const t=K('tarif')[0]||{};return`<div class="card"><h2>Tarifs de la villa</h2>${F('tarif',[['basse','Prix par nuit, basse saison (DA)','number',t.basse],['haute','Prix par nuit, haute saison (DA)','number',t.haute],['haute_de','Haute saison : du mois (1 à 12)','number',t.haute_de??6],['haute_a','jusqu’au mois (1 à 12)','number',t.haute_a??9],['weekend','Supplément weekend, nuits du jeudi et du vendredi (DA)','number',t.weekend??0],['pers_incl','Personnes incluses','number',t.pers_incl??4],['supp','Supplément par personne en plus, par nuit (DA)','number',t.supp??0]],'Enregistrer les tarifs')}<p class="mu" style="margin-top:10px;font-size:.8rem">Ces tarifs servent à calculer le prix quand tu ne l’écris pas toi-même dans une réservation.</p></div>`},
 
@@ -441,10 +784,10 @@ V.coffre=function(){if(!own())return'<div class="card">Espace réservé au propr
 G.push(['personnel','🔐','Personnel',[['coffre','Mon crédit & mes notes']],1]);
 function draw(){const y0=scrollY;draw.i();scrollTo(0,y0)}
 draw.i=function(){
- const gs=G.filter(g=>!g[4]||own());if(!gs.some(g=>g[0]===grp))grp='home';
- const subs=(gs.find(x=>x[0]===grp)[3]||[]).filter(s=>!s[2]||own()),cur=subs.some(s=>s[0]===S[grp])?S[grp]:(subs[0]?subs[0][0]:'home'),t=td(),oc=K('resa').find(r=>r.arrivee<=t&&t<r.depart);
+ const gs=FIN_OFFLINE?[G.find(g=>g[0]==='equipe')]:G.filter(g=>!g[4]||own());if(!gs.some(g=>g[0]===grp))grp=FIN_OFFLINE?'equipe':'home';
+ const subs=FIN_OFFLINE?[['finance','Finance',1]]:(gs.find(x=>x[0]===grp)[3]||[]).filter(s=>!s[2]||own()),cur=FIN_OFFLINE?'finance':(subs.some(s=>s[0]===S[grp])?S[grp]:(subs[0]?subs[0][0]:'home')),t=td(),oc=K('resa').find(r=>r.arrivee<=t&&t<r.depart);
  $('#st').className='chip'+(own()?(oc?' occ':' lib'):'');
- $('#st').textContent=own()?(oc?'Occupée jusqu’au '+oc.depart:'Libre aujourd’hui'):'Espace employé';
+ $('#st').textContent=FIN_OFFLINE?'Hors ligne · synthèse financière':(own()?(oc?'Occupée jusqu’au '+oc.depart:'Libre aujourd’hui'):'Espace employé');
  $('nav').innerHTML=gs.map(x=>`<button class="${x[0]===grp?'on':''}" onclick="if(grp==='personnel'&&'${x[0]}'!=='personnel')lockVault(false);grp='${x[0]}';draw();scrollTo(0,0)"><span>${x[1]}</span>${x[2]}</button>`).join('');
  $('main').innerHTML=(subs.length>1?`<div class="seg">${subs.map(x=>`<button class="${x[0]===cur?'on':''}" onclick="S['${grp}']='${x[0]}';draw()">${x[1]}</button>`).join('')}</div>`:'')+V[cur]()};
 
@@ -454,9 +797,9 @@ V.home=function(){
  const mo=[5,4,3,2,1,0].map(i=>{const d=new Date(now.getFullYear(),now.getMonth()-i,1),x=fin(mk(d.getFullYear(),d.getMonth()));return{l:d.toLocaleDateString('fr-FR',{month:'short'}),rev:x.rev}}),mx=Math.max(1,...mo.map(x=>x.rev));
  const todayArr=rs.filter(r=>r.arrivee===t),todayDep=rs.filter(r=>r.depart===t),current=rs.find(r=>r.arrivee<=t&&t<r.depart);
  const upcoming=rs.filter(r=>r.arrivee>=t).sort((a,b)=>a.arrivee.localeCompare(b.arrivee)).slice(0,5);
- const unpaid=rs.filter(r=>r.depart>=t&&tot(r)>(+r.acompte||0)).sort((a,b)=>a.arrivee.localeCompare(b.arrivee)).slice(0,5);
+ const unpaid=rs.filter(r=>r.depart>=t&&tot(r)>(+paidAmount(r)||0)).sort((a,b)=>a.arrivee.localeCompare(b.arrivee)).slice(0,5);
  const next=current?null:upcoming[0],oc=occ(now.getFullYear(),now.getMonth());
- const moneyDue=rs.filter(r=>r.depart>=t).reduce((s,r)=>s+Math.max(0,tot(r)-(+r.acompte||0)),0);
+ const moneyDue=rs.filter(r=>r.depart>=t).reduce((s,r)=>s+Math.max(0,tot(r)-(+paidAmount(r)||0)),0);
  const monthName=now.toLocaleDateString('fr-FR',{month:'long',year:'numeric'});
  const alertRows=[];
  if(todayArr.length)alertRows.push(`<div class="td"><span class="status-pill green">${todayArr.length} arrivée(s)</span> ${todayArr.map(r=>`<b>${esc(r.client)}</b> à ${esc(r.h_in||'14:00')}`).join(' · ')}</div>`);
@@ -469,34 +812,63 @@ V.home=function(){
  <div class="card"><div class="panel-title"><div><h2 style="margin-bottom:4px">Occupation du mois</h2><p class="subtle">Part des nuits du mois déjà réservées</p></div><div class="ring" style="--v:${oc}"><b>${oc}%</b></div></div><div class="pg" style="margin-top:16px;height:9px"><i style="width:${oc}%;background:#176b5b"></i></div></div>
  <div class="card"><div class="panel-title"><div><h2 style="margin-bottom:4px">Évolution du chiffre d’affaires</h2><p class="subtle">Réservations classées par mois d’arrivée · 6 derniers mois</p></div></div><div class="chart-bars">${mo.map(x=>`<div class="chart-col"><span class="chart-value">${Math.round(x.rev/1000)}k</span><div class="chart-bar" style="height:${Math.max(3,Math.round(x.rev/mx*125))}px" title="${DA(x.rev)}"></div><span class="chart-label">${esc(x.l)}</span></div>`).join('')}</div></div>`:''}
  <div class="card"><div class="panel-title"><h2>Alertes et opérations</h2><span class="status-pill ${alertRows.length?'gold':'green'}">${alertRows.length?alertRows.length+' à suivre':'À jour'}</span></div>${alertRows.join('')||'<p class="subtle">Aucune alerte urgente détectée pour aujourd’hui.</p>'}</div>
- <div class="card"><div class="panel-title"><h2>Prochaines réservations</h2><button class="s" onclick="go('sejours','liste')">Tout voir</button></div>${upcoming.map(r=>`<div class="row"><div style="min-width:0"><div><span class="dot" style="background:${col(r)}"></span><b>${esc(r.client)}</b></div><div class="subtle">${esc(r.arrivee)} → ${esc(r.depart)} · ${nights(r)} nuit(s) · ${esc(r.nb)} pers.</div></div><div style="text-align:right;flex:none"><b>${DA(tot(r))}</b><div class="subtle">${tot(r)>(+r.acompte||0)?`Reste ${DA(tot(r)-(+r.acompte||0))}`:'Payé'}</div></div></div>`).join('')||'<p class="subtle">Aucune réservation enregistrée.</p>'}</div>
- <div class="card"><div class="panel-title"><h2>À encaisser</h2><button class="s" onclick="go('equipe','finance')">Comptabilité</button></div>${unpaid.map(r=>`<div class="row"><div><b>${esc(r.client)}</b><div class="subtle">Départ ${esc(r.depart)}</div></div><div style="text-align:right"><b class="bad">${DA(tot(r)-(+r.acompte||0))}</b><div><button class="s" onclick="bon('${r.id}')">Bon</button></div></div></div>`).join('')||'<p class="subtle">Aucun solde à suivre sur les séjours futurs ou en cours.</p>'}</div>
+ <div class="card"><div class="panel-title"><h2>Prochaines réservations</h2><button class="s" onclick="go('sejours','liste')">Tout voir</button></div>${upcoming.map(r=>`<div class="row"><div style="min-width:0"><div><span class="dot" style="background:${col(r)}"></span><b>${esc(r.client)}</b></div><div class="subtle">${esc(r.arrivee)} → ${esc(r.depart)} · ${nights(r)} nuit(s) · ${esc(r.nb)} pers.</div></div><div style="text-align:right;flex:none"><b>${DA(tot(r))}</b><div class="subtle">${tot(r)>(+paidAmount(r)||0)?`Reste ${DA(tot(r)-(+paidAmount(r)||0))}`:'Payé'}</div></div></div>`).join('')||'<p class="subtle">Aucune réservation enregistrée.</p>'}</div>
+ <div class="card"><div class="panel-title"><h2>À encaisser</h2><button class="s" onclick="go('equipe','finance')">Comptabilité</button></div>${unpaid.map(r=>`<div class="row"><div><b>${esc(r.client)}</b><div class="subtle">Départ ${esc(r.depart)}</div></div><div style="text-align:right"><b class="bad">${DA(tot(r)-(+paidAmount(r)||0))}</b><div><button class="s" onclick="bon('${r.id}')">Bon</button></div></div></div>`).join('')||'<p class="subtle">Aucun solde à suivre sur les séjours futurs ou en cours.</p>'}</div>
  <div class="card"><div class="panel-title"><h2>Raccourcis de gestion</h2></div><div class="chips"><span class="cb" onclick="go('maison','stock')">📦 Inventaire et courses</span><span class="cb" onclick="go('maison','travaux')">🛠 Travaux</span><span class="cb" onclick="go('eau','eau')">💧 Puits et pompe</span><span class="cb" onclick="go('eau','citerne')">🚚 Citernes</span><span class="cb" onclick="go('sejours','clients')">👥 Fichier clients</span></div></div>`;
 };
+function renderCalendarMonth(year, month, rs, today) {
+ const first=new Date(year,month,1),days=new Date(year,month+1,0).getDate(),offset=(first.getDay()+6)%7,monthStart=ds(year,month,1),monthEnd=ds(year,month+1,1);
+ const monthBookings=rs.filter(r=>r.arrivee<monthEnd&&r.depart>monthStart).length;
+ const weekdays=['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
+ let cells=weekdays.map(x=>'<span class="cal-weekday">'+x+'</span>').join('');
+ for(let i=0;i<offset;i++)cells+='<span class="cal-empty" aria-hidden="true"></span>';
+ for(let day=1;day<=days;day++){
+  const date=ds(year,month,day),stay=rs.find(r=>r.arrivee<=date&&date<r.depart),arrival=rs.find(r=>r.arrivee===date),departure=rs.find(r=>r.depart===date),block=blk(date),event=fer(date);
+  const isStart=date===selA,isEnd=date===selB,inRange=!!(selA&&selB&&date>selA&&date<selB),turnover=!!(arrival&&departure);
+  let cls='cal-day';
+  if(date===today)cls+=' is-today';if(isStart)cls+=' is-start';if(isEnd)cls+=' is-end';if(inRange)cls+=' is-range';
+  if(stay)cls+=' is-booked';if(arrival)cls+=' has-arrival';if(departure)cls+=' has-departure';if(turnover)cls+=' is-turnover';if(block)cls+=' is-blocked';if(event)cls+=' has-event';
+  const stayColor=stay?col(stay):arrival?col(arrival):departure?col(departure):'';
+  const style=(stayColor?'--stay-color:'+stayColor+';':'')+(arrival?'--arrival-color:'+col(arrival)+';':'')+(departure?'--departure-color:'+col(departure)+';':'');
+  const exactDate=new Date(date+'T00:00:00').toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  const status=turnover?'Départ et arrivée le même jour':arrival?'Arrivée · '+arrival.client:stay?'Séjour · '+stay.client:departure?'Départ · '+departure.client:block?'Bloqué · '+(block.motif||'Indisponible'):event?event:pDay(date)>0?'Tarif indicatif '+DA(pDay(date)):'Disponible';
+  let label='';
+  if(turnover)label='<small class="cal-turnover">Départ · arrivée</small>';
+  else if(arrival)label='<small class="cal-stay-label">'+esc((arrival.client||'Séjour').split(/\s+/)[0])+'</small>';
+  else if(stay)label='<small class="cal-stay-note">Occupé</small>';
+  else if(departure)label='<small class="cal-day-note">Départ</small>';
+  else if(block)label='<small class="cal-day-note">Indisponible</small>';
+  else if(event)label='<small class="cal-day-note">'+esc(event)+'</small>';
+  else if(pDay(date)>0){const price=pDay(date),shortPrice=price>=10000?Math.round(price/1000)+'k':Math.round(price).toLocaleString('fr-FR');label='<small class="cal-price">'+shortPrice+' DA</small>'}
+  cells+='<button type="button" class="'+cls+'" style="'+style+'" aria-label="'+esc(exactDate+' · '+status)+'" aria-pressed="'+(isStart||isEnd?'true':'false')+'" title="'+esc(exactDate+' · '+status)+'" onclick="pick(\''+date+'\')"><span class="cal-day-number">'+day+'</span>'+label+'</button>';
+ }
+ const title=first.toLocaleDateString('fr-FR',{month:'long',year:'numeric'});
+ return '<section class="cal-month" aria-label="Calendrier '+esc(title)+'"><div class="cal-month-heading"><h3>'+esc(title)+'</h3><span>'+monthBookings+' séjour'+(monthBookings>1?'s':'')+'</span></div><div class="cal-grid">'+cells+'</div></section>';
+}
 V.cale=function(){
- const y=cal.getFullYear(),mo=cal.getMonth(),n=new Date(y,mo+1,0).getDate(),off=(new Date(y,mo,1).getDay()+6)%7,rs=K('resa'),mm=mk(y,mo),t=td();
- const selected=selA&&selB?`${selA} → ${selB}`:selA||'';
- const reservationFor=d=>rs.find(r=>r.arrivee<=d&&d<r.depart);
- const cell=d=>{const rA=rs.find(r=>r.arrivee===d),rD=rs.find(r=>r.depart===d),r=reservationFor(d),b=blk(d),fe=fer(d);let cls='cd',bg='',label='';
-  if(d===t)cls+=' t';if(d===selA||d===selB)cls+=' sel';if(selA&&selB&&d>selA&&d<selB)cls+=' in';if(b)cls+=' bk';if(fe)cls+=' fe';
-  if(r){bg=col(r);label=(r.arrivee===d?'↘ ':'')+r.client.split(' ')[0];cls+=' b'}
-  else if(rA){bg=col(rA);label='Arrivée · '+rA.client.split(' ')[0];cls+=' b'}
-  else if(rD){bg=col(rD);label='Départ · '+rD.client.split(' ')[0];cls+=' b'}
-  else if(b)label='⛔ Bloqué';else if(fe)label='🎉 '+fe;else{const p=pDay(d);if(p)label=Math.round(p/1000)+'k DA'}
-  if(rA&&rD&&rA.id!==rD.id){label='↘ '+rA.client.split(' ')[0]+' / ↗ '+rD.client.split(' ')[0];bg=`linear-gradient(135deg,${col(rA)} 0 50%,${col(rD)} 50% 100%)`;cls+=' b'}
-  const style=bg?`background:${bg}`:'';
-  return `<div class="${cls}" style="${style}" onclick="pick('${d}')" title="${esc(d+(r?' · '+r.client:''))}"><b>${+d.slice(8)}</b>${label?`<small>${esc(label)}</small>`:''}</div>`};
- let grid=['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'].map(x=>`<i>${x}</i>`).join('');for(let i=0;i<off;i++)grid+='<i></i>';for(let d=1;d<=n;d++)grid+=cell(ds(y,mo,d));
- const monthRes=rs.filter(r=>r.arrivee.slice(0,7)<=mm&&r.depart.slice(0,7)>=mm).sort((a,b)=>a.arrivee.localeCompare(b.arrivee));
- const count=monthRes.length,booked=Array.from({length:n},(_,i)=>ds(y,mo,i+1)).filter(d=>busy(d)).length,rate=Math.round(booked/n*100);
- let panel='';
- if(selA&&selB){const nn=Math.max(0,Math.round((new Date(selB)-new Date(selA))/864e5)),conf=rs.filter(r=>selA<r.depart&&selB>r.arrivee),block=K('bloc').filter(b=>selA<=b.fin&&selB>b.debut),est=rangeP(selA,selB);panel=`<div class="panel-title"><h2 style="margin:0">Période sélectionnée</h2><button class="s" onclick="clr()">Effacer</button></div><p style="margin-top:12px"><b>${esc(selA)} → ${esc(selB)}</b> · ${nn} nuit(s) · Estimation tarifaire : <b>${DA(est)}</b></p>${conf.length||block.length?`<p class="bad" style="margin-top:8px">Attention : ${conf.length?conf.length+' réservation(s) en conflit. ':''}${block.length?block.length+' blocage(s).':''}</p>`:'<p class="good" style="margin-top:8px">Aucun conflit visible dans les données chargées.</p>'}<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><button onclick="go('sejours','nouvelle')">Créer une réservation</button><button class="s" onclick="bloquer()">Bloquer la période</button></div>`}
- else if(selA){const r=rs.find(x=>x.arrivee<=selA&&selA<x.depart),b=blk(selA),fe=fer(selA);panel=`<div class="panel-title"><h2 style="margin:0">${new Date(selA+'T00:00:00').toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}</h2><button class="s" onclick="clr()">Effacer</button></div>${r?`<div class="row"><div><b>${esc(r.client)}</b><div class="subtle">${esc(r.tel)} · ${esc(r.nb)} personnes</div><div class="subtle">${esc(r.arrivee)} → ${esc(r.depart)}</div></div><div style="text-align:right"><b>${DA(tot(r))}</b><div class="subtle">Reste ${DA(Math.max(0,tot(r)-(+r.acompte||0)))}</div><button class="s" onclick="bon('${r.id}')">Bon</button></div></div>`:b?`<p class="bad">Période bloquée : ${esc(b.motif)}</p><button class="d" style="margin-top:8px" onclick="del('${b.id}')">Retirer le blocage</button>`:`<p class="good" style="margin-top:10px">${fe?'Jour signalé : '+esc(fe)+' · ':''}Aucune réservation pour cette date.</p><p class="subtle" style="margin-top:5px">Sélectionne une deuxième date pour définir le séjour.</p><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><button onclick="go('sejours','nouvelle')">Réserver à partir de cette date</button><button class="s" onclick="bloquer()">Bloquer cette date</button>${fe?'':`<button class="s" onclick="ferier()">Ajouter un événement</button>`}</div>`}`}
- else panel='<h2>Choisis les dates</h2><p class="subtle">Touche la date d’arrivée, puis la date de départ. Le départ n’est pas compté comme une nuit occupée.</p>';
- const list=monthRes.map(r=>`<div class="row"><div style="min-width:0"><div><span class="dot" style="background:${col(r)}"></span><b>${esc(r.client)}</b> <span class="status-pill ${r.depart<=t?'':'green'}">${r.depart<=t?'Terminé':r.arrivee<=t?'En séjour':'À venir'}</span></div><div class="subtle">${esc(r.arrivee)} → ${esc(r.depart)} · ${nights(r)} nuit(s) · ${esc(r.nb)} pers.</div></div><div style="text-align:right;flex:none"><b>${DA(tot(r))}</b><div class="subtle">${tot(r)>(+r.acompte||0)?'Reste '+DA(tot(r)-(+r.acompte||0)):'Payé'}</div><button class="s" onclick="bon('${r.id}')">Bon</button></div></div>`).join('');
- return `<div class="card"><div class="panel-title" style="margin-bottom:16px"><div><p class="subtle" style="margin-bottom:3px">PLANNING DES SÉJOURS</p><h2 style="font-size:1.25rem;margin:0">${cal.toLocaleDateString('fr-FR',{month:'long',year:'numeric'})}</h2></div><div style="display:flex;gap:6px"><button class="s" onclick="mv(-1)" aria-label="Mois précédent">‹</button><button class="s" onclick="cal=new Date();selA=selB='';draw()">Aujourd’hui</button><button class="s" onclick="mv(1)" aria-label="Mois suivant">›</button></div></div><div class="g" style="grid-template-columns:repeat(3,minmax(0,1fr));margin-bottom:16px"><div class="k"><small>Réservations</small><b>${count}</b></div><div class="k"><small>Nuits occupées</small><b>${booked}/${n}</b></div><div class="k"><small>Occupation</small><b>${rate}%</b></div></div><div class="cal">${grid}</div><div class="calendar-legend"><span><i class="legend-dot" style="background:#176b5b"></i> Séjour</span><span><i class="legend-dot" style="background:#d6a85f"></i> Aujourd’hui</span><span>⛔ Dates bloquées</span><span>🔴 Événement / jour férié</span></div></div><div class="card">${panel}</div><div class="card"><div class="panel-title"><h2>Réservations du mois</h2><button class="s" onclick="go('sejours','liste')">Liste complète</button></div>${list||'<p class="subtle">Aucune réservation sur ce mois.</p>'}</div>`;
+ const y=cal.getFullYear(),mo=cal.getMonth(),t=td(),rs=K('resa'),twoMonths=window.matchMedia('(min-width: 1100px)').matches;
+ const next=new Date(y,mo+1,1),visibleEndDate=new Date(y,mo+(twoMonths?2:1),1),periodStart=ds(y,mo,1),periodEnd=ds(visibleEndDate.getFullYear(),visibleEndDate.getMonth(),1);
+ const visibleDates=[];for(let d=periodStart;d<periodEnd;d=ad(d,1))visibleDates.push(d);
+ const visibleBookings=rs.filter(r=>r.arrivee<periodEnd&&r.depart>periodStart).sort((a,b)=>a.arrivee.localeCompare(b.arrivee));
+ const booked=visibleDates.filter(d=>busy(d)).length,rate=visibleDates.length?Math.round(booked/visibleDates.length*100):0;
+ const primaryTitle=new Date(y,mo,1).toLocaleDateString('fr-FR',{month:'long',year:'numeric'}),secondaryTitle=next.toLocaleDateString('fr-FR',{month:'long',year:'numeric'});
+ const secondMonth=twoMonths?renderCalendarMonth(next.getFullYear(),next.getMonth(),rs,t):'';
+ const calendarStats='<div class="cal-stats"><div><small>SÉJOURS PLANIFIÉS</small><b>'+visibleBookings.length+'</b></div><div><small>NUITS OCCUPÉES</small><b>'+booked+' / '+visibleDates.length+'</b></div><div><small>TAUX D’OCCUPATION</small><b>'+rate+' %</b></div></div>';
+ let selection='';
+ if(selA&&selB){
+  const nn=Math.max(0,Math.round((new Date(selB+'T00:00:00')-new Date(selA+'T00:00:00'))/864e5)),conf=rs.filter(r=>selA<r.depart&&selB>r.arrivee),blockRows=K('bloc').filter(b=>selA<=b.fin&&selB>b.debut),est=rangeP(selA,selB),dateRange=new Date(selA+'T00:00:00').toLocaleDateString('fr-FR',{day:'numeric',month:'long'})+' — '+new Date(selB+'T00:00:00').toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});
+  selection='<div class="cal-selection '+(conf.length||blockRows.length?'has-conflict':'')+'"><div class="cal-selection-top"><div><span class="cal-step">DATES SÉLECTIONNÉES</span><h3>'+esc(dateRange)+'</h3></div><button type="button" class="s" onclick="clr()">Effacer</button></div><div class="cal-selection-stats"><div><small>Durée</small><b>'+nn+' nuit'+(nn>1?'s':'')+'</b></div><div><small>Estimation tarifaire</small><b>'+(est>0?DA(est):'Tarif à configurer')+'</b></div></div>'+(conf.length||blockRows.length?'<p class="cal-warning">'+(conf.length?conf.length+' réservation(s) chevauchent ces dates. ':'')+(blockRows.length?blockRows.length+' blocage(s) couvrent cette période. ':'')+'La vérification sera répétée avant l’enregistrement.</p>':'<p class="cal-available">Aucun chevauchement enregistré sur ces dates.</p>')+'<div class="cal-selection-actions"><button type="button" onclick="go(\'sejours\',\'nouvelle\')">Préparer la réservation</button><button type="button" class="s" onclick="bloquer()">Bloquer les dates</button></div></div>';
+ }else if(selA){
+  const selectedDate=new Date(selA+'T00:00:00').toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'}),already=busy(selA),blocked=blk(selA);
+  selection='<div class="cal-selection"><div class="cal-selection-top"><div><span class="cal-step">ÉTAPE 1 SUR 2 · ARRIVÉE</span><h3>'+esc(selectedDate)+'</h3></div><button type="button" class="s" onclick="clr()">Effacer</button></div><p class="cal-hint">Choisis ensuite la date de départ. Les séjours existants et les dates bloquées sont marqués dans le calendrier.</p>'+(already||blocked?'<p class="cal-warning">'+(already?'Cette date est déjà occupée. ':'')+(blocked?'Cette date est bloquée.':'')+'</p>':'<p class="cal-available">Date sélectionnée. Choisis le départ pour calculer les nuits.</p>')+'<div class="cal-selection-actions"><button type="button" onclick="go(\'sejours\',\'nouvelle\')">Réserver une nuit</button><button type="button" class="s" onclick="bloquer()">Bloquer cette date</button></div></div>';
+ }else{
+  selection='<div class="cal-selection cal-empty-selection"><span class="cal-step">RÉSERVATION EN 2 ÉTAPES</span><h3>Choisis une date d’arrivée</h3><p class="cal-hint">Sélectionne l’arrivée, puis le départ. Les réservations et blocages existants restent visibles.</p><button type="button" onclick="go(\'sejours\',\'nouvelle\')">Créer une réservation</button></div>';
+ }
+ const list=visibleBookings.map(r=>{const status=r.depart<=t?'Terminé':r.arrivee<=t?'En séjour':'À venir',due=Math.max(0,tot(r)-paidAmount(r));return '<article class="cal-booking"><span class="cal-booking-color" style="background:'+col(r)+'"></span><div class="cal-booking-info"><div class="cal-booking-line"><b>'+esc(r.client||'Réservation')+'</b><span class="status-pill '+(status==='Terminé'?'':status==='En séjour'?'green':'gold')+'">'+status+'</span></div><small>'+esc(r.arrivee)+' → '+esc(r.depart)+' · '+nights(r)+' nuit'+(nights(r)>1?'s':'')+' · '+esc(r.nb||'—')+' pers.</small><div class="cal-booking-money">'+DA(tot(r))+(due>0?' · reste '+DA(due):' · payé')+'</div></div><button type="button" class="s" onclick="bon(\''+r.id+'\')">Bon</button></article>'}).join('');
+ return '<section class="calendar-page"><div class="cal-toolbar-card"><div class="cal-toolbar"><div class="cal-title"><span class="cal-eyebrow">PLANNING DES SÉJOURS</span><h2>Calendrier des réservations</h2><p>Choisis les dates de séjour; les nuits et le tarif estimé se mettent à jour.</p></div><div class="cal-toolbar-actions"><button type="button" class="cal-new-booking" onclick="go(\'sejours\',\'nouvelle\')">＋ Nouvelle réservation</button><div class="cal-nav"><button type="button" class="cal-arrow" onclick="mv(-1)" aria-label="Mois précédent">‹</button><button type="button" class="cal-today" onclick="cal=new Date();selA=selB=\'\';draw()">Aujourd’hui</button><button type="button" class="cal-arrow" onclick="mv(1)" aria-label="Mois suivant">›</button></div></div></div>'+calendarStats+'</div><div class="cal-calendar-card"><div class="cal-period-heading"><div><span class="cal-eyebrow">DISPONIBILITÉS</span><h3><span class="cal-primary-month">'+esc(primaryTitle)+'</span>'+(twoMonths?'<span class="cal-range-dash"> — </span><span class="cal-secondary-month">'+esc(secondaryTitle)+'</span>':'')+'</h3></div><span class="cal-period-note">'+(twoMonths?'Vue sur deux mois':'Vue mensuelle')+'</span></div><div class="cal-months '+(twoMonths?'two-months':'one-month')+'">'+renderCalendarMonth(y,mo,rs,t)+secondMonth+'</div><div class="cal-legend"><span><i class="cal-legend-dot available"></i>Disponible</span><span><i class="cal-legend-dot booked"></i>Séjour confirmé</span><span><i class="cal-legend-dot blocked"></i>Bloqué</span><span><i class="cal-legend-dot today"></i>Aujourd’hui</span><span class="cal-legend-price">Tarif indicatif par nuit</span></div></div><div class="cal-lower"><div class="cal-info-card">'+selection+'</div><div class="cal-info-card"><div class="cal-list-heading"><div><span class="cal-eyebrow">SÉJOURS ENREGISTRÉS</span><h3>Réservations affichées</h3></div><button type="button" class="s" onclick="go(\'sejours\',\'liste\')">Liste complète</button></div><div class="cal-bookings">'+(list||'<p class="cal-hint">Aucune réservation enregistrée sur la période affichée.</p>')+'</div></div></div></section>';
 };
 
 boot();
 </script>
 <script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js",{updateViaCache:"none"}).catch(e=>console.warn("Service worker:",e)))}</script></body></html>
+
