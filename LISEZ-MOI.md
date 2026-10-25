@@ -1,6 +1,11 @@
 # Villa Les Deux Palmiers — installation et module financier
 
-Cette version est une PWA installable sur Windows, Android et iPhone/iPad. Elle conserve les dossiers dans Supabase. La connexion Internet reste nécessaire pour se connecter, enregistrer des opérations et synchroniser les modifications.
+**Version 1.0.0 – Gestion Pro.** PWA installable sur Windows, Android et iPhone/iPad. Chaque saisie est d’abord enregistrée sur l’appareil (IndexedDB), puis synchronisée avec Supabase dès qu’Internet est disponible. Internet n’est nécessaire que pour la toute première connexion d’un appareil.
+
+- Hors ligne : réservations, clients, paiements, cautions, remboursements, dépenses, inventaire, ménage, piscine, citernes, pompe, travaux, configuration et espace propriétaire fonctionnent sans Internet. Les modifications attendent dans une file locale.
+- Synchronisation : au retour du réseau, la file est envoyée puis les changements des autres appareils sont récupérés. Si une même fiche a été modifiée ailleurs entre-temps, rien n’est écrasé : un conflit est proposé dans **💾 Sauvegarde**.
+- Sauvegarde : bouton **💾 Sauvegarde** en haut de l’écran (fichier JSON complet avec empreinte de contrôle, restauration vérifiée, copies automatiques datées sur l’appareil).
+- La bibliothèque Supabase est livrée dans `vendor/` pour fonctionner sans CDN.
 
 ## Tableau de bord financier
 
@@ -12,9 +17,9 @@ Les anciennes réservations ne comportent pas la date réelle des acomptes. Elle
 
 Le résultat est le **solde opérationnel calculé par l’application**, pas nécessairement un bénéfice comptable net. Il ne comprend notamment pas les réservations non encaissées, les heures non payées, les cautions, les retraits de caisse ni la valeur du stock consommé. Voir `RAPPORT-MODULE-FINANCIER.md` pour l’audit et les règles détaillées.
 
-## Consultation hors ligne
+## Hors ligne
 
-Après une connexion réussie et un chargement complet en ligne, la PWA garde une copie de la synthèse financière agrégée et de l’interface nécessaire. Si la connexion tombe, un propriétaire connecté auparavant peut consulter la dernière synthèse enregistrée en lecture seule. Cette copie contient les dates et montants agrégés, sans noms ni numéros de téléphone. Aucun changement ne peut être enregistré hors ligne; la synchronisation et les autres fonctions de gestion demandent Internet. Au retour du réseau, les dossiers sont rechargés depuis Supabase.
+Depuis la version 1.0.0, l’application complète fonctionne hors ligne (voir plus haut). L’ancienne consultation financière en lecture seule ne sert plus que de secours si le navigateur bloque le stockage local (navigation privée).
 
 ## Calendrier des réservations
 
@@ -22,7 +27,7 @@ Le planning utilise les réservations, les blocages et les tarifs déjà enregis
 
 ## Ouvrir le site et l’installer
 
-La version mise à jour est publiée ici : [Villa Les Deux Palmiers – Gestion Pro](https://iphonereda0-coder.github.io/villa-les-deux-palmiers/). Elle conserve l’authentification et la base de données existantes. Une connexion Internet est nécessaire pour ouvrir une session, enregistrer des opérations et synchroniser les données.
+La version publiée est ici : [Villa Les Deux Palmiers – Gestion Pro](https://iphonereda0-coder.github.io/villa-les-deux-palmiers/). Elle conserve l’authentification et la base de données existantes. Une connexion Internet est nécessaire pour la première connexion de chaque appareil.
 
 Sur le Bureau Windows, ouvre le raccourci **VillaLesDeuxPalmiers – Raccourci**. Il ouvre le site dans l’application Windows déjà installée. Pour installer le site dans Edge ou Chrome, ouvre le lien ci-dessus, puis choisis l’icône **Installer** ou le menu … → Applications → Installer ce site en tant qu’application.
 
