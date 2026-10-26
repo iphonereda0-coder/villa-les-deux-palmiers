@@ -1,6 +1,9 @@
+Warning: truncated output (original token count: 626)
+Total output lines: 61
+
 // Villa Les Deux Palmiers — Gestion Pro : interface disponible hors ligne.
 // Les données ne passent jamais par ce cache : elles sont dans la base locale de l’appareil (IndexedDB) puis synchronisées.
-const VERSION = '1.3.2';
+const VERSION = '1.3.3';
 const CACHE = 'villa-gestion-pro-' + VERSION;
 const SHELL = ['./', './index.html', './manifest.webmanifest', './icon.svg', './icon-180.png', './icon-192.png', './icon-512.png', './vendor/supabase-2.58.0.min.js'];
 const NETWORK_TIMEOUT_MS = 4000;
@@ -19,18 +22,7 @@ self.addEventListener('activate', event => {
       .then(keys => Promise.all(keys.filter(key => key.startsWith('villa-') && key !== CACHE).map(key => caches.delete(key))))
       .then(() => self.clients.claim())
   );
-});
-
-// Réseau d’abord (pour recevoir les mises à jour), mais bascule sur la copie locale si Internet est coupé ou trop lent.
-function networkFirst(request, cacheKey) {
-  return new Promise(resolve => {
-    let settled = false;
-    const fallback = async () => {
-      if (settled) return;
-      const hit = await caches.match(cacheKey || request, { ignoreSearch: true });
-      if (hit) { settled = true; resolve(hit); }
-    };
-    const timer = setTimeout(fallback, NETWORK_TIMEOUT_MS);
+});…126 tokens truncated…
     fetch(request).then(response => {
       clearTimeout(timer);
       if (response.ok) {
