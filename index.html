@@ -10,6 +10,27 @@
 <script src="./vendor/supabase-2.58.0.min.js"></script>
 <style>
 :root{--bg:#f4f1ff;--c:#fff;--b:#e6e0fb;--t:#1b1340;--m:#6b6490;--a1:#6d28d9;--a2:#ff3d81;--p:#06b6d4;--ko:#f04438;--ok:#12b76a;--g:linear-gradient(135deg,#6d28d9,#ff3d81)}
+body.dark{--bg:#0b0f14;--c:#141a22;--b:#1e2a38;--t:#e6edf3;--m:#8b9cb3;--a1:#60a5fa;--a2:#f472b6;--p:#22d3ee;--ko:#f87171;--ok:#4ade80;--g:linear-gradient(135deg,#2563eb,#7c3aed)}
+body.dark{background:var(--bg);color:var(--t)}
+body.dark header{background:linear-gradient(135deg,#1e3a5f,#312e81)!important}
+body.dark nav{background:#0f1520!important;border-color:var(--b)!important}
+body.dark nav button{color:#8b9cb3!important}
+body.dark nav button.on{background:#1e3a5f!important;color:#fff!important}
+body.dark .card{background:var(--c);border:1px solid var(--b);box-shadow:0 4px 18px rgba(0,0,0,.35)}
+body.dark input,body.dark select{background:#0f1520;border-color:var(--b);color:var(--t)}
+body.dark .k{background:#0f1520}
+body.dark .seg button{background:#0f1520;border-color:var(--b);color:var(--m)}
+body.dark .seg .on{background:var(--g);color:#fff;border-color:transparent}
+body.dark button.s{background:#1e2a38;color:#93c5fd}
+body.dark .mu,.subtle{color:var(--m)}
+.rep-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.rep-grid{grid-template-columns:1fr}}
+.rep-box{background:var(--bg);border:1px solid var(--b);border-radius:14px;padding:16px;text-align:center}
+.rep-box b{display:block;font-size:1.4rem;margin-top:6px}
+.rep-opt{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1.5px solid var(--b);border-radius:12px;cursor:pointer;margin-bottom:8px;background:var(--bg)}
+.rep-opt:has(input:checked){border-color:var(--a1);background:rgba(109,40,217,.08)}
+body.dark .rep-opt:has(input:checked){background:rgba(96,165,250,.12)}
+
 *{box-sizing:border-box;margin:0;padding:0}[hidden]{display:none!important}
 body{font:15px/1.45 "Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--t);padding-bottom:104px}
 header{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top)) 16px 14px;background:var(--g);color:#fff;border-radius:0 0 22px 22px;box-shadow:0 8px 24px rgba(109,40,217,.3)}
@@ -212,7 +233,7 @@ button{transition:transform .16s,box-shadow .16s,filter .16s}button:hover{filter
 <label>Mot de passe<input name="pw" type="password" required></label>
 <button>Se connecter</button><button type="button" class="s" onclick="requestPasswordReset()">Mot de passe oublié ?</button></form></div></div>
 <div id="app" hidden><header><div><h1>🌴 Deux Palmiers <span style="font-size:.65rem;opacity:.75;font-weight:600">PREMIUM</span></h1><span id="st" class="chip"></span> <button id="sync" class="status-pill" onclick="go('sauvegarde','sauvegarde')">…</button></div>
-<div class="hdr-actions"><button class="s" onclick="go('sauvegarde','sauvegarde')">💾 Sauvegarde</button><button class="s" onclick="openReportChooser()">📑 Rapports</button><button class="s" onclick="imprimerPage()">🖨 Imprimer</button><button class="s" onclick="logout()">Quitter</button></div></header><main></main><nav></nav></div>
+<div class="hdr-actions"><button class="s" onclick="toggleDark()" title="Mode sombre" id="darkBtn">🌙</button><button class="s" onclick="go('sauvegarde','sauvegarde')">💾 Sauvegarde</button><button class="s" onclick="openReportChooser()">📑 Rapports</button><button class="s" onclick="imprimerPage()">🖨 Imprimer</button><button class="s" onclick="logout()">Quitter</button></div></header><main></main><nav></nav></div>
 <div id="toast"></div><div id="print"></div><div id="printPreview" role="dialog" aria-modal="true" aria-label="Aperçu avant impression"><div class="print-toolbar"><b>Aperçu du document</b><label>Format<select id="printFormat" onchange="setPrintFormat(this.value)"><option value="a4">A4</option><option value="receipt">Reçu 80 mm</option></select></label><div class="print-actions"><button class="s" onclick="closePrintPreview()">Fermer</button><button onclick="printFromPreview()">Imprimer / Enregistrer en PDF</button></div></div><div id="printSheet" class="print-sheet"></div></div>
 <script>
 const SB_URL='https://aetgcmbgkkzcdyutkssr.supabase.co',SB_KEY='sb_publishable_mZNG7tlN7WgFapgNrlBRbw_FS0-aXUr',TEL_URGENCE='0554599600';
@@ -225,6 +246,7 @@ plus=n=>{const d=new Date();d.setDate(d.getDate()+n);return new Date(d-d.getTime
 ds=(y,m,d)=>`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`,
 nights=r=>Math.max(1,Math.round((new Date(r.depart)-new Date(r.arrivee))/864e5)),
 tot=r=>+r.total||nights(r)*(+r.prix||0),sum=(a,f)=>a.reduce((s,x)=>s+(+f(x)||0),0),
+toggleDark=()=>{document.body.classList.toggle('dark');const on=document.body.classList.contains('dark');localStorage.setItem('villa_dark',on?'1':'0');const b=document.getElementById('darkBtn');if(b)b.textContent=on?'☀️':'🌙'},
 own=()=>role==='proprio',inM=(d,m)=>!m||String(d).startsWith(m),
 busy=r=>K('resa').some(x=>r>=x.arrivee&&r<x.depart);
 function toast(m,bad){const t=$('#toast');t.textContent=m;t.className='on'+(bad?' bad':'');clearTimeout(toast.t);toast.t=setTimeout(()=>t.className='',3200)}
@@ -239,7 +261,7 @@ async function boot(){
  if(!user){const stored=storedSession();if(stored&&(!navigator.onLine||isNetErr(authErr)))user=stored.user}
  if(!user){$('#login').hidden=false;return}
  if(ACTIVE_USER_ID){if(ACTIVE_USER_ID!==user.id)return location.reload();$('#login').hidden=true;SYNC.error='';sync('reconnexion');return}
- ACTIVE_USER_ID=user.id;$('#login').hidden=true;$('#app').hidden=false;
+ ACTIVE_USER_ID=user.id;$('#login').hidden=true;$('#app').hidden=false;if(localStorage.getItem('villa_dark')==='1'){document.body.classList.add('dark');const b=document.getElementById('darkBtn');if(b)b.textContent='☀️'}
  role=cachedRole(ACTIVE_USER_ID)||'';
  try{await dbOpen(ACTIVE_USER_ID);await loadLocal()}catch(e){DB.ok=false;console.warn(e);toast('Stockage local indisponible ('+(e.message||e)+') : Internet sera nécessaire pour enregistrer.',1)}
  if(navigator.onLine&&session){try{const response=await sb.from('profiles').select('role').eq('id',user.id).single();if(response.data?.role){role=response.data.role;try{localStorage.setItem(financialRoleKey(ACTIVE_USER_ID),role)}catch(e){}}}catch(e){}}
@@ -800,6 +822,14 @@ function setRepMode(mode){
  document.querySelectorAll('.rep-panel').forEach(p=>p.style.display=p.dataset.mode===mode?'block':'none');
  updateRepUI();
 }
+function printRepOnly(){
+ const res=document.getElementById('rep_results');
+ if(!res){imprimerPage();return;}
+ const clone=res.cloneNode(true);
+ clone.querySelectorAll('button').forEach(function(b){b.remove();});
+ $('#print').innerHTML='<h1>Villa Les Deux Palmiers — Répartition des bénéfices</h1><p>Document imprimé le '+esc(td())+'</p>'+clone.innerHTML;
+ openPrintPreview();
+}
 function copyRepRecap(){
  const t=`RÉCAPITULATIF DE RÉPARTITION DES BÉNÉFICES
 CA brut : ${document.getElementById('rep_ca')?.textContent||''}
@@ -925,27 +955,38 @@ generateur(){const rows=K('depense').filter(x=>GENERATOR_CATS.includes(x.cat)).s
 
 repartition(){if(!own())return'<div class="card">Réservé au propriétaire.</div>';
  const cfg=loadRepConfig(),r=calcRepartition(cfg);
- const salOpts=[['1','Compter avec les frais généraux (déduit avant le partage)'],['2','Déduire uniquement de ma part'],['3','Déduire uniquement de la part de la maison'],['4','Ne pas compter le salaire']].map(function(x){return '<label style="display:flex;align-items:center;gap:10px;padding:11px 14px;border:1.5px solid var(--b);border-radius:12px;cursor:pointer;background:#faf9ff"><input type="radio" name="rep_salaire" value="'+x[0]+'" '+(cfg.traitementSalaire===x[0]?'checked':'')+' onchange="updateRepUI()"><span>'+x[1]+'</span></label>'}).join('');
- return '<div class="card"><div class="panel-title"><h2>Répartition des bénéfices</h2><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="s" onclick="imprimerPage()">🖨 Imprimer</button><button class="s" onclick="copyRepRecap()">📋 Copier</button></div></div><p class="subtle">Calcul automatique à partir des données déjà enregistrées (période : mois filtré ou mois en cours).</p></div>'
- + '<div class="card"><h2>Traitement du salaire</h2><div style="display:flex;flex-direction:column;gap:8px">'+salOpts+'</div></div>'
- + '<div class="card"><h2>Travaux</h2><label style="display:flex;align-items:center;gap:10px;padding:11px 14px;border:1.5px solid var(--b);border-radius:12px;cursor:pointer;background:#faf9ff"><input type="checkbox" id="rep_inclure_travaux" '+(cfg.inclureTravauxSaison?'checked':'')+' onchange="updateRepUI()"><span>Inclure les travaux en saison dans le calcul de répartition</span></label><p class="subtle" style="margin-top:10px">Les travaux marqués « Hors saison » restent toujours exclus du partage (calculs personnels).</p></div>'
- + '<div class="card"><h2>Mode de partage du reste</h2><div class="seg" style="margin-bottom:14px">'
+ const salOpts=[['1','Compter avec les frais généraux (déduit avant le partage)'],['2','Déduire uniquement de ma part'],['3','Déduire uniquement de la part de la maison'],['4','Ne pas compter le salaire']].map(function(x){return '<label class="rep-opt"><input type="radio" name="rep_salaire" value="'+x[0]+'" '+(cfg.traitementSalaire===x[0]?'checked':'')+' onchange="updateRepUI()"><span>'+x[1]+'</span></label>'}).join('');
+ return '<div class="card"><div class="panel-title"><h2>📊 Répartition des bénéfices</h2></div>'
+ + '<p class="subtle" style="margin-bottom:4px">Calcul automatique à partir des données déjà enregistrées.</p></div>'
+
+ + '<div class="card"><h2>1. Traitement du salaire</h2>'+salOpts+'</div>'
+
+ + '<div class="card"><h2>2. Travaux</h2>'
+ + '<label class="rep-opt"><input type="checkbox" id="rep_inclure_travaux" '+(cfg.inclureTravauxSaison?'checked':'')+' onchange="updateRepUI()"><span>Inclure les travaux en saison dans le calcul</span></label>'
+ + '<p class="subtle">Les travaux marqués « Hors saison » restent toujours exclus (argent personnel).</p></div>'
+
+ + '<div class="card"><h2>3. Mode de partage</h2>'
+ + '<div class="seg" style="margin-bottom:14px">'
  + '<button type="button" class="rep-mode '+(cfg.mode==='parts'?'on':'')+'" data-mode="parts" onclick="setRepMode(\'parts\')">Parts</button>'
- + '<button type="button" class="rep-mode '+(cfg.mode==='pourcentages'?'on':'')+'" data-mode="pourcentages" onclick="setRepMode(\'pourcentages\')">Pourcentages</button>'
+ + '<button type="button" class="rep-mode '+(cfg.mode==='pourcentages'?'on':'')+'" data-mode="pourcentages" onclick="setRepMode(\'pourcentages\')">%</button>'
  + '<button type="button" class="rep-mode '+(cfg.mode==='division'?'on':'')+'" data-mode="division" onclick="setRepMode(\'division\')">Division</button>'
  + '<button type="button" class="rep-mode '+(cfg.mode==='personnalise'?'on':'')+'" data-mode="personnalise" onclick="setRepMode(\'personnalise\')">Montants libres</button></div>'
  + '<div class="rep-panel" data-mode="parts" style="display:'+(cfg.mode==='parts'?'block':'none')+'"><div class="g"><label>Parts pour moi<input type="number" id="rep_parts_moi" value="'+cfg.partsMoi+'" min="0" step="0.5" oninput="updateRepUI()"></label><label>Parts pour la maison<input type="number" id="rep_parts_maison" value="'+cfg.partsMaison+'" min="0" step="0.5" oninput="updateRepUI()"></label></div></div>'
  + '<div class="rep-panel" data-mode="pourcentages" style="display:'+(cfg.mode==='pourcentages'?'block':'none')+'"><div class="g"><label>% pour moi<input type="number" id="rep_pct_moi" value="'+cfg.pctMoi+'" min="0" max="100" oninput="updateRepUI()"></label><label>% pour la maison<input type="number" id="rep_pct_maison" value="'+cfg.pctMaison+'" min="0" max="100" oninput="updateRepUI()"></label></div></div>'
  + '<div class="rep-panel" data-mode="division" style="display:'+(cfg.mode==='division'?'block':'none')+'"><label>Diviser le reste par<select id="rep_division" onchange="updateRepUI()"><option value="2" '+(+cfg.division===2?'selected':'')+'>÷ 2 (égalité)</option><option value="3" '+(+cfg.division===3?'selected':'')+'>÷ 3</option></select></label></div>'
- + '<div class="rep-panel" data-mode="personnalise" style="display:'+(cfg.mode==='personnalise'?'block':'none')+'"><div class="g"><label>Montant pour moi (DA)<input type="number" id="rep_custom_moi" value="'+cfg.customMoi+'" step="any" oninput="updateRepUI()"></label><label>Montant pour la maison (DA)<input type="number" id="rep_custom_maison" value="'+cfg.customMaison+'" step="any" oninput="updateRepUI()"></label><label>Autre (DA)<input type="number" id="rep_custom_autre" value="'+cfg.customAutre+'" step="any" oninput="updateRepUI()"></label></div></div></div>'
- + '<div class="card" id="rep_results"><h2>Récapitulatif de répartition</h2>'
+ + '<div class="rep-panel" data-mode="personnalise" style="display:'+(cfg.mode==='personnalise'?'block':'none')+'"><div class="g"><label>Montant pour moi (DA)<input type="number" id="rep_custom_moi" value="'+cfg.customMoi+'" step="any" oninput="updateRepUI()"></label><label>Montant maison (DA)<input type="number" id="rep_custom_maison" value="'+cfg.customMaison+'" step="any" oninput="updateRepUI()"></label><label>Autre (DA)<input type="number" id="rep_custom_autre" value="'+cfg.customAutre+'" step="any" oninput="updateRepUI()"></label></div></div></div>'
+
+ + '<div class="card" id="rep_results"><div class="panel-title"><h2>4. Récapitulatif</h2>'
+ + '<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="s" onclick="printRepOnly()">🖨 Imprimer le récap</button><button class="s" onclick="copyRepRecap()">📋 Copier</button></div></div>'
  + '<div class="row"><span>CA brut</span><b id="rep_ca">'+DA(r.caBrut)+'</b></div>'
  + '<div class="row"><span>Frais de fonctionnement</span><b id="rep_frais">− '+DA(r.frais)+'</b></div>'
  + '<div class="row"><span>Traitement du salaire</span><b id="rep_salaire_txt">'+r.libelleSalaire+(r.salaire?' ('+DA(r.salaire)+')':'')+'</b></div>'
  + '<div class="row"><span>Travaux en saison</span><b id="rep_travaux_s">'+(r.travauxSaisonInclus?'Inclus':'Exclus')+' ('+DA(r.travauxSaison)+')</b></div>'
  + '<div class="row"><span>Travaux hors saison (à part)</span><b id="rep_travaux_h">'+DA(r.travauxHors)+'</b></div>'
- + '<div class="row" style="border-top:2px solid var(--b);margin-top:8px;padding-top:12px"><span style="font-weight:700">Montant restant à partager</span><b id="rep_restant" style="font-size:1.2rem;color:var(--ok)">'+DA(r.restant)+'</b></div>'
- + '<div class="g" style="margin-top:16px"><div class="k" style="text-align:center"><small>Ma part finale</small><b id="rep_ma_part" style="color:var(--a1);font-size:1.35rem">'+DA(r.maPart)+'</b></div><div class="k" style="text-align:center"><small>Part de la maison</small><b id="rep_part_maison" style="color:var(--ok);font-size:1.35rem">'+DA(r.partMaison)+'</b></div></div>'
+ + '<div class="row" style="border-top:2px solid var(--b);margin-top:10px;padding-top:12px"><span style="font-weight:700">Montant restant à partager</span><b id="rep_restant" style="font-size:1.25rem;color:var(--ok)">'+DA(r.restant)+'</b></div>'
+ + '<div class="rep-grid" style="margin-top:16px">'
+ + '<div class="rep-box"><small>Ma part finale</small><b id="rep_ma_part" style="color:var(--a1)">'+DA(r.maPart)+'</b></div>'
+ + '<div class="rep-box"><small>Part de la maison</small><b id="rep_part_maison" style="color:var(--ok)">'+DA(r.partMaison)+'</b></div></div>'
  + '<div id="rep_autre_box" style="display:'+(r.partAutre>0||cfg.mode==='personnalise'?'block':'none')+';text-align:center;margin-top:12px" class="subtle">Autre : <b id="rep_part_autre">'+DA(r.partAutre)+'</b></div></div>';
 },
 
