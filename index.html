@@ -27,9 +27,29 @@ body.dark .mu,.subtle{color:var(--m)}
 @media(max-width:700px){.rep-grid{grid-template-columns:1fr}}
 .rep-box{background:var(--bg);border:1px solid var(--b);border-radius:14px;padding:16px;text-align:center}
 .rep-box b{display:block;font-size:1.4rem;margin-top:6px}
-.rep-opt{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1.5px solid var(--b);border-radius:12px;cursor:pointer;margin-bottom:8px;background:var(--bg)}
+.rep-opt{display:flex;align-items:flex-start;gap:12px;padding:14px;border:1.5px solid var(--b);border-radius:12px;cursor:pointer;margin-bottom:8px;background:var(--bg);line-height:1.35}
+.rep-opt input[type="radio"],.rep-opt input[type="checkbox"]{flex:none;width:20px;height:20px;margin-top:2px;accent-color:var(--a1)}
+.rep-opt span{flex:1;min-width:0;word-break:break-word}
 .rep-opt:has(input:checked){border-color:var(--a1);background:rgba(109,40,217,.08)}
-body.dark .rep-opt:has(input:checked){background:rgba(96,165,250,.12)}
+body.dark .rep-opt:has(input:checked){background:rgba(96,165,250,.12);border-color:#60a5fa}
+body.dark .rep-opt{background:#0f1520}
+#rep_results{margin-bottom:24px}
+body.dark .kk{opacity:.95}
+body.dark .chip{background:rgba(255,255,255,.12)}
+body.dark .status-pill{background:#1e2a38;color:#86efac}
+body.dark .fin-alert.danger{background:#3f1515;border-color:#7f1d1d;color:#fca5a5}
+body.dark .fin-alert.warning{background:#3d2e0a;border-color:#854d0e;color:#fde68a}
+body.dark .fin-method{background:#0f1520;border-color:var(--b);color:var(--m)}
+body.dark .fin-method b{color:var(--ok)}
+body.dark .fin-kpi,body.dark .fin-card,body.dark .fin-focus,body.dark .fin-month{background:var(--c);border-color:var(--b);color:var(--t)}
+body.dark .fin-period,body.dark .fin-period-controls{background:#0f1520;border-color:var(--b)}
+body.dark .fin-segment{background:#0f1520;border-color:var(--b);color:var(--m)}
+body.dark .fin-segment-on{background:var(--a1);color:#fff;border-color:var(--a1)}
+body.dark .fin-dashboard{color:var(--t)}
+body.dark .fin-detail-list .row,body.dark .fin-row{border-color:var(--b)}
+body.dark .private-finance{background:#0f1520;border:1px solid var(--b)}
+body.dark .print-actions button{margin:4px 4px 4px 0}
+
 
 *{box-sizing:border-box;margin:0;padding:0}[hidden]{display:none!important}
 body{font:15px/1.45 "Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--t);padding-bottom:104px}
@@ -38,7 +58,7 @@ h1{font:900 1.3rem/1 "Arial Black",Impact,sans-serif;letter-spacing:-.02em}
 h2{font:900 1.2rem/1.1 "Arial Black",Impact,sans-serif;letter-spacing:-.02em;margin-bottom:14px}
 .chip{display:inline-block;margin-top:6px;padding:3px 11px;border-radius:99px;background:rgba(255,255,255,.25);font-size:.75rem;color:#fff}
 .chip.occ{background:#fff;color:var(--ko);font-weight:700}.chip.lib{background:#fff;color:var(--ok);font-weight:700}
-main{max-width:980px;margin:auto;padding:16px 14px}
+main{max-width:980px;margin:auto;padding:16px 14px 120px}
 .card{background:var(--c);border-radius:18px;padding:16px;margin-bottom:14px;box-shadow:0 4px 18px rgba(80,50,160,.09)}
 .g{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;margin-bottom:14px}.card .g{margin-bottom:0}
 .kk{border-radius:16px;padding:14px;color:#fff;min-height:86px}.kk small{opacity:.92;font-size:.78rem}
@@ -868,10 +888,25 @@ heures(){const h=K('heures'),names=[...new Set([...K('employe').map(x=>x.nom),..
  <div class="card"><h2>Historique des paiements de salaire</h2>${T(K('salaire_paye').slice().sort((a,b)=>String(b.date).localeCompare(String(a.date))),[['Date payée',x=>esc(x.date)],['Période',x=>esc(x.periode||String(x.date||'').slice(0,7))],['Employé',x=>`<b>${esc(x.nom)}</b>`],['Montant',x=>DA(x.montant)],['Note',x=>esc(x.note||'')]],x=>`<button class="s" onclick="bonRecord('${x.id}')">Reçu de paiement</button> `)}</div>`},
 finance(){if(!own())return'<div class="card">Comptabilité réservée au propriétaire.</div>';const f=fin(M),dashboard=renderFinancialDashboard();
  if(FIN_OFFLINE)return dashboard+'<div class="fin-method"><b>Synthèse en lecture seule</b><span>Les écrans de gestion et les nouvelles opérations demandent une connexion.</span></div>';
- return dashboard+`<div class="card"><h2>Comptabilité historique et sauvegardes</h2><p class="subtle" style="margin:-6px 0 12px">Les indicateurs ci-dessous suivent les règles historiques de l’application. Le tableau de bord financier au-dessus utilise les encaissements et paiements datés.</p><div class="print-actions" style="margin-bottom:12px"><button onclick="backupJSON()">⬇ Sauvegarder toutes les données (JSON)</button><button class="s" onclick="document.getElementById('restoreFile').click()">Restaurer une sauvegarde JSON</button><button class="s" onclick="csv()">Exporter les réservations (CSV)</button></div><input id="restoreFile" type="file" accept="application/json,.json" hidden onchange="restoreJSON(event)"><p class="subtle" style="margin-bottom:12px">Télécharge régulièrement une sauvegarde et garde-la dans Fichiers iCloud ou sur un ordinateur. L’import conserve les données actuelles et ajoute les enregistrements manquants.</p><label>Mois (vide = tout)<input type="month" value="${esc(M)}" onchange="M=this.value;draw()"></label>
+ return dashboard+`<div class="card"><div class="panel-title"><h2>Comptabilité historique</h2><button class="s" onclick="draw()">🔄 Actualiser</button></div>
+<p class="subtle" style="margin:-6px 0 12px">Indicateurs selon les règles historiques. Le tableau de bord ci-dessus utilise les encaissements et paiements datés.</p>
+<div class="print-actions" style="margin-bottom:12px;display:flex;flex-wrap:wrap;gap:8px">
+<button class="s" onclick="backupJSON()">⬇ Sauvegarde JSON</button>
+<button class="s" onclick="document.getElementById('restoreFile').click()">Restaurer JSON</button>
+<button class="s" onclick="csv()">Exporter CSV</button>
+<button class="s" onclick="imprimerPage()">🖨 Imprimer</button>
+</div><input id="restoreFile" type="file" accept="application/json,.json" hidden onchange="restoreJSON(event)"><p class="subtle" style="margin-bottom:12px">Télécharge régulièrement une sauvegarde et garde-la dans Fichiers iCloud ou sur un ordinateur. L’import conserve les données actuelles et ajoute les enregistrements manquants.</p><label>Mois (vide = tout)<input type="month" value="${esc(M)}" onchange="M=this.value;draw()"></label>
  <div class="g" style="margin-top:12px"><div class="k"><small>Montant réservé · date d’arrivée</small><b>${DA(f.rev)}</b></div><div class="k"><small>Acomptes cumulés · date non ventilée</small><b>${DA(f.enc)}</b></div><div class="k"><small>Solde contractuel prévu</small><b>${DA(f.rev-f.enc)}</b></div></div>
  <div class="g" style="margin-top:10px"><div class="k"><small>Part maison · 2/3</small><b>${DA(f.mai)}</b></div><div class="k"><small>Frais de la maison</small><b>${DA(f.ch)}</b></div><div class="k"><small>Reste maison</small><b>${DA(f.net)}</b></div></div></div>
-  <div class="card"><h2>Frais payés par la maison</h2><div class="td">Ménage : <b>${DA(f.mn)}</b></div><div class="td">Travaux : <b>${DA(f.tv)}</b></div><div class="td">Citernes : <b>${DA(f.cit)}</b></div><div class="td">Groupe électrogène 35 kVA : <b>${DA(f.gen)}</b></div><div class="td">Autres dépenses : <b>${DA(Math.max(0,f.dep-f.gen))}</b></div></div>
+  <div class="card"><h2>Frais payés par la maison</h2>
+<div class="g" style="margin-top:4px">
+<div class="k"><small>Ménage</small><b>${DA(f.mn)}</b></div>
+<div class="k"><small>Travaux</small><b>${DA(f.tv)}</b></div>
+<div class="k"><small>Citernes</small><b>${DA(f.cit)}</b></div>
+<div class="k"><small>Groupe 35 kVA</small><b>${DA(f.gen)}</b></div>
+<div class="k"><small>Autres dépenses</small><b>${DA(Math.max(0,f.dep-f.gen))}</b></div>
+<div class="k"><small>Total frais</small><b style="color:var(--ko)">${DA(f.ch)}</b></div>
+</div></div>
   <div class="card private-finance"><div class="panel-title"><div><h2>Part personnelle du propriétaire</h2><p class="subtle">Ta part et le salaire sont masqués derrière ton code personnel.</p></div><span class="private-lock">🔒 Privé</span></div>${vaultUnlocked ? `<div class="inventory-summary"><div class="k"><small>Ta part brute · 1/3</small><b>${DA(f.ger)}</b></div><div class="k"><small>Salaire employé retiré de ta part</small><b>− ${DA(f.sal)}</b></div><div class="k"><small>Ton solde après salaire</small><b>${DA(f.gerNet)}</b></div></div>` : `<p class="subtle">Déverrouille avec ton code pour voir ta part, le salaire déduit et ton solde personnel.</p><button onclick="openVault()">🔐 Déverrouiller avec mon code</button>`}</div>
   <div class="card"><h2>Autre dépense</h2>${F('depense',[['date','Date','date',td()],['cat','Type',[...GENERATOR_CATS,'Produits piscine','Électricité','Réparation','Courses','Autre']],['desc','Description'],['montant','Montant (DA)','number']])}${T(K('depense').filter(x=>inM(x.date,M)),[['Date',x=>esc(x.date)],['Type',x=>esc(x.cat)],['Description',x=>esc(x.desc)],['Montant',x=>DA(x.montant)]],x=>`<button class="s" onclick="bonRecord('${x.id}')">Imprimer le bon</button> `)}</div>
  <div class="card"><h2>Bon d’achat</h2>${F('achat',[['date','Date','date',td()],['fournisseur','Fournisseur / magasin'],['article','Articles achetés'],['qte','Quantité','number',1],['montant','Total payé (DA)','number'],['note','Référence du reçu / observation','text','',1]],'Enregistrer l’achat')}${T(K('achat').filter(x=>inM(x.date,M)),[['Date',x=>esc(x.date)],['Fournisseur',x=>esc(x.fournisseur)],['Articles',x=>esc(x.article)],['Quantité',x=>esc(x.qte)],['Montant',x=>DA(x.montant)]],x=>`<button class="s" onclick="bonRecord('${x.id}')">Imprimer le bon</button> `)}</div>
@@ -977,7 +1012,7 @@ repartition(){if(!own())return'<div class="card">Réservé au propriétaire.</di
  + '<div class="rep-panel" data-mode="personnalise" style="display:'+(cfg.mode==='personnalise'?'block':'none')+'"><div class="g"><label>Montant pour moi (DA)<input type="number" id="rep_custom_moi" value="'+cfg.customMoi+'" step="any" oninput="updateRepUI()"></label><label>Montant maison (DA)<input type="number" id="rep_custom_maison" value="'+cfg.customMaison+'" step="any" oninput="updateRepUI()"></label><label>Autre (DA)<input type="number" id="rep_custom_autre" value="'+cfg.customAutre+'" step="any" oninput="updateRepUI()"></label></div></div></div>'
 
  + '<div class="card" id="rep_results"><div class="panel-title"><h2>4. Récapitulatif</h2>'
- + '<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="s" onclick="printRepOnly()">🖨 Imprimer le récap</button><button class="s" onclick="copyRepRecap()">📋 Copier</button></div></div>'
+ + '<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="s" onclick="draw()">🔄 Actualiser</button><button class="s" onclick="printRepOnly()">🖨 Imprimer le récap</button><button class="s" onclick="copyRepRecap()">📋 Copier</button></div></div>'
  + '<div class="row"><span>CA brut</span><b id="rep_ca">'+DA(r.caBrut)+'</b></div>'
  + '<div class="row"><span>Frais de fonctionnement</span><b id="rep_frais">− '+DA(r.frais)+'</b></div>'
  + '<div class="row"><span>Traitement du salaire</span><b id="rep_salaire_txt">'+r.libelleSalaire+(r.salaire?' ('+DA(r.salaire)+')':'')+'</b></div>'
