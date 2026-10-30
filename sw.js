@@ -1,6 +1,6 @@
 // Villa Les Deux Palmiers — Gestion Pro : interface disponible hors ligne.
 // Les données ne passent jamais par ce cache : elles sont dans la base locale de l’appareil (IndexedDB) puis synchronisées.
-const VERSION = '1.5.5';
+const VERSION = '1.5.6';
 const CACHE = 'villa-gestion-pro-' + VERSION;
 const SHELL = ['./', './index.html', './manifest.webmanifest', './icon.svg', './icon-180.png', './icon-192.png', './icon-512.png', './vendor/supabase-2.58.0.min.js'];
 const NETWORK_TIMEOUT_MS = 4000;
