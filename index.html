@@ -1040,7 +1040,7 @@ generateur(){const rows=K('depense').filter(x=>GENERATOR_CATS.includes(x.cat)).s
  Les fiches sont d’abord écrites dans IndexedDB sur l’appareil, puis envoyées à Supabase dès qu’Internet est disponible.
  Chaque modification en attente garde la version serveur connue (base) : si la fiche a changé ailleurs entre-temps,
  l’envoi est bloqué et un conflit est proposé au lieu d’écraser la donnée. */
-const APP_VERSION='1.5.18',APP_BUILD='2026-11-01',AUTH_STORAGE_KEY='sb-'+new URL(SB_URL).hostname.split('.')[0]+'-auth-token';
+const APP_VERSION='1.5.19',APP_BUILD='2026-11-01',AUTH_STORAGE_KEY='sb-'+new URL(SB_URL).hostname.split('.')[0]+'-auth-token';
 const DB={db:null,uid:'',ok:false},SYNC={busy:false,again:false,last:'',pending:0,conflicts:0,error:'',pulled:false,timer:null};
 let CONFLICTS=[],SNAPSHOTS=[];
 const KIND_LABELS={resa:'Réservations',client:'Fiches clients',noir:'Liste noire',mouvement_financier:'Entrées et sorties de caisse',achat_maison:'Achats de maison',depense:'Dépenses',achat:'Bons d’achat',retrait:'Retraits de caisse',stock:'Inventaire',stock_achat:'Achats de stock',stock_sortie:'Sorties de stock',emploi_depense:'Dépenses emploi / main-d’œuvre',hors_saison:'Travaux hors saison',menage:'Ménage',piscine:'Piscine',citerne:'Citernes',citerne_config:'Tarifs de citernes',pompe:'Pompe',eau_ref:'Mesures du puits',travaux:'Travaux',heures:'Journées de travail',periode_travail:'Périodes de travail terminées',employe:'Tarifs employés',avance:'Acomptes sur salaire',retenue:'Retenues sur salaire',salaire_paye:'Salaires payés',tarif:'Tarifs de la villa',bloc:'Dates bloquées',ferie:'Jours fériés',private_vault:'Espace propriétaire (chiffré)'};
